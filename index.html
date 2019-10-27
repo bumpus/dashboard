@@ -5,7 +5,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="skycons.js"></script>
     <script src="weather.js"></script>
+    <script src="menu.js"></script>
+    <script src="photos.js"></script>
+    <script src="clock.js"></script>
     <link rel="stylesheet" type="text/css" href="weather.css">
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="photos.css">
+    <link rel="stylesheet" type="text/css" href="clock.css">
     <script>
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -15,12 +21,12 @@ $(document).ready(function(){
   //Start a clock display
   setInterval(updateClock, 1000);
 
-  //Do an initial load of the school lunch menus
-  loadMenus();
-
   //Set timers to reload the calendar and weather
   setInterval(loadWeather, 1000 * 60 * 15);
   setInterval(loadCalendar, 1000 * 60 * 5);
+
+  //Load initial content 
+  loadMenus();
   loadWeather();
   loadCalendar();
   loadPhoto();
@@ -29,208 +35,17 @@ $(document).ready(function(){
 function loadCalendar(){
   $('#gcalendar').attr('src', $('#gcalendar').attr('src'));
 }
-
-function loadMenus(){
-  menuDate = new Date();
-  var now = new Date();
-
-  //If the time is after noon, get the menu for tomorrow
-  if(menuDate.getHours() > 12){
-    menuDate.setDate(menuDate.getDate() + 1);
-  }
-  $("#jefferson").html("<span class=school>Jefferson</span>");
-  var url = "https://cr.nutrislice.com/menu/api/weeks/school/jefferson/menu-type/lunch/"+menuDate.getFullYear()+"/"+(menuDate.getMonth()+1).toString().padStart(2, '0')+"/"+menuDate.getDate().toString().padStart(2, '0')+"/?format=json-p&callback=?";
-  $.getJSON(url, "", function (result) {
-    parseMenu('#jefferson', result);
-  });
-  $("#taft").html("<span class=school>Taft</span>");
-  url = "https://cr.nutrislice.com/menu/api/weeks/school/taft/menu-type/lunch/"+menuDate.getFullYear()+"/"+(menuDate.getMonth()+1).toString().padStart(2, '0')+"/"+menuDate.getDate().toString().padStart(2, '0')+"/?format=json-p&callback=?";
-  $.getJSON(url, "", function (result) {
-    parseMenu('#taft', result);
-  });
-
-  /* set to reload the menus at 1PM on the day the menu to get the next day's info */
-  setTimeout(loadMenus, new Date(menuDate.getFullYear(), menuDate.getMonth(), menuDate.getDate(), 13, 0, 0, 0) - now);
-}
-
-function parseMenu(school, result){
-  $(school+">span").append(" - "+ days[menuDate.getDay()] +"<br/>");
-  if(result.days[menuDate.getDay()].menu_items.length != 0){
-    $.each(result.days[menuDate.getDay()].menu_items ,function(index, item){
-      if (item.text != ""){
-        if(item.is_station_header == true)
-          $(school).append("<span class='station'>"+item.text+"</span>")
-        else
-          $(school).append("<span class='comment'>"+item.text+"</span>")
-        if (item.no_line_break)
-          $(school).append(" ");
-        else
-          $(school).append("<br/>");
-      }
-      if (item.food != null){
-        $(school).append(item.food.name);
-        $(school).append("<br/>");
-      }
-    });
-  }else{
-    $(school).append("No Menu Today");
-  }
-}
-
-function updateClock(){
-  var d = new Date();
-  var h = d.getHours();
-  var ampm = "";
-  var month = months[d.getMonth()];
-  var dateString;
-  if (d.getDate() == 1)
-    dateString = "1st";
-  else if (d.getDate() == 2)
-    dateString = "2nd";
-  else if (d.getDate() == 3)
-    dateString = "3rd";
-  else
-    dateString = d.getDate() + "th";
-
-  
-  // Sort out the AM/PM/noon/midnight thing
-  if(h >= 12){
-    ampm = "PM";
-    if (h > 12){
-      h = h-12;
-    }
-  }else{
-    ampm = "AM";
-    if (h == 0){
-      h = 12;
-    }
-  }
-
-  $("#clock").html("<div id='clockweekday'>"+days[d.getDay()]+"</div>"+
-                   "<div id='clocktime'>"+h+":"+d.getMinutes().toString().padStart(2, '0')+":"+d.getSeconds().toString().padStart(2, '0')+" "+ampm+"</div>"+
-                   "<div id='clockdate'>"+month+" "+dateString+", "+d.getFullYear()+"</div>");
-}
-
-  var photoList = [{"file": "IMG_6240.JPG", "id": "pic01"},
-	           {"file": "IMG_6250.JPG", "id": "pic02"},
-	           {"file": "IMG_6258.JPG", "id": "pic03"},
-	           {"file": "IMG_6262.JPG", "id": "pic04"},
-	           {"file": "IMG_6267.JPG", "id": "pic05"},
-	           {"file": "IMG_6280.JPG", "id": "pic06"},
-	           {"file": "IMG_6298.JPG", "id": "pic07"},
-	           {"file": "IMG_6316.JPG", "id": "pic08"},
-	           {"file": "IMG_6431.JPG", "id": "pic09"},
-	           {"file": "IMG_6497.JPG", "id": "pic10"},
-	           {"file": "IMG_6504.JPG", "id": "pic11"},
-	           {"file": "IMG_6510.JPG", "id": "pic12"}];
-  var imageIndex = 0;
-  var photoDelay = 30000;
-  var previousPhoto;
-  var currentPhoto;
-
-  function loadPhoto(){
-    currentPhoto = photoList[imageIndex];
-    $(".photos").append("<img style='display: none' id='"+currentPhoto.id+"' src='"+currentPhoto.file+"'></img>");
-    reveal();
-  }
-
-  function nextPhoto(){
-    $(".photos").append("<img style='display: none' id='"+currentPhoto.id+"' src='"+currentPhoto.file+"'></img>");
-    $("#"+previousPhoto.id).fadeOut("slow", reveal);
-  }
-
-  function reveal(){
-    if(previousPhoto){
-      $("#"+previousPhoto.id).remove();
-    }
-    $("#"+currentPhoto.id).fadeIn("slow");
-    imageIndex++;
-    if (imageIndex == photoList.length){
-      imageIndex = 0;
-    }
-    previousPhoto = currentPhoto;
-    currentPhoto = photoList[imageIndex];
-    setTimeout(nextPhoto, photoDelay);
-  }
-
     </script>
     <style>
-    body {
-      background : lightcyan;
-    }
-    .station {
-      font-weight : bold;
-    }
+body {
+  background : lightcyan;
+}
 
-    .school {
-      background-color : lightgray;
-    }
-
-    .comment {
-      font-style : italic;
-    }
-
-
-    #taft{
-      background-color : violet;
-    }
-
-    #jefferson{
-      background-color : lightskyblue;
-    }
-
-    #menus {
-      position : fixed;
-      right : 5px;
-      bottom : 5px;
-    }
-
-    .calendar {
-      position : fixed;
-      top : 0;
-      left : 0;
-    }
-
-    #clock {
-      position : fixed;
-      width : 100%;
-      font-family : Roboto, Arial, sans-serif;
-      text-align : center;
-      bottom : 0;
-    }
-
-    #clockweekday {
-      color : green;
-      font-size : 3em;
-    }
-
-    #clocktime {
-      color : red;
-      font-size : 8em;
-    }
-
-    #clockdate {
-      color : blue;
-      font-size : 3em;
-    }
-    
-    .photos {
-      position : fixed;
-      width : 640px;
-      height : 640px;
-      left : 640px;
-      top : 160px;
-    }
-
-    div.photos > img {
-      max-width : 100%;
-      max-height : 100%;
-      border-radius : 20px;
-      display: block;
-      margin : auto;
-    }
-
-
+.calendar {
+  position : fixed;
+  top : 0;
+  left : 0;
+}
     </style>
   </head>
   <body>

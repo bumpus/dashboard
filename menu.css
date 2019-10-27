@@ -1,0 +1,26 @@
+.station {
+  font-weight : bold;
+}
+
+.school {
+  background-color : lightgray;
+}
+
+.comment {
+  font-style : italic;
+}
+
+
+#taft{
+  background-color : violet;
+}
+
+#jefferson{
+  background-color : lightskyblue;
+}
+
+#menus {
+  position : fixed;
+  right : 5px;
+  bottom : 5px;
+}

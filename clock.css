@@ -1,0 +1,23 @@
+#clock {
+  position : fixed;
+  width : 100%;
+  font-family : Roboto, Arial, sans-serif;
+  text-align : center;
+  bottom : 0;
+}
+
+#clockweekday {
+  color : green;
+  font-size : 3em;
+}
+
+#clocktime {
+  color : red;
+  font-size : 8em;
+}
+
+#clockdate {
+  color : blue;
+  font-size : 3em;
+}
+
