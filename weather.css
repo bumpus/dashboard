@@ -1,0 +1,97 @@
+#weather{
+  width : 1000px;
+  height : 120px;
+  position : fixed;
+  top : 5px;
+  left : 460px;
+  font-family : sans-serif;
+}
+
+#weather > #current{
+  width : 225px;
+  align : left;
+  height : 100%;
+  position : absolute;
+}
+
+#weather > #week {
+  left : 230px;
+  float : left;
+  position : absolute;
+  width : 770px;
+}
+
+/* Current box items */
+#weather > #current > .currentSummary{
+  position : absolute;
+  bottom : 1px;
+  text-align : center;
+  width : 100%
+}
+
+#weather > #current > .currentTemperature{
+  position : absolute;
+  font-size : 5em;
+  left : 3px;
+}
+
+#weather > #current > .currentPop{
+  position : absolute;
+  left : 2px;
+  bottom : 20px;
+}
+
+#weather > #current > .currentIcon{
+  position : absolute;
+  right : 3px;
+}
+
+
+/* daily forecast items */
+#week > .weekSummary {
+  text-align : center;
+}
+
+#week > .day > .dayContainer {
+  height : 100px;
+  width : 100%;
+  position : relative;
+}
+
+
+#week > .day {
+  top: 25px;
+  width : 108px;
+  float : left;
+  border : black 1px solid;
+}
+
+.day > .dayName{
+  width : 100%;
+  text-align : center;
+  font-weight : bold;
+}
+
+.dayContainer > .dailyLow{
+  position : absolute;
+  bottom : 1px;
+  left : 2px;
+}
+
+.dayContainer > .dailyHigh{
+  position : absolute;
+  top : 1px;
+  left : 2px;
+}
+
+.dayContainer > .dailyPop{
+  position : absolute;
+  top : 1px;
+  right : 2px;
+}
+
+.dayContainer > .dailyIcon{
+  position : absolute;
+  left : 25px;
+  top : 25px;
+}
