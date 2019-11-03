@@ -1,15 +1,14 @@
-var photoList = [{"file": "IMG_6240.JPG", "id": "pic01"},
-  {"file": "IMG_6250.JPG", "id": "pic02"},
-  {"file": "IMG_6258.JPG", "id": "pic03"},
-  {"file": "IMG_6262.JPG", "id": "pic04"},
-  {"file": "IMG_6267.JPG", "id": "pic05"},
-  {"file": "IMG_6280.JPG", "id": "pic06"},
-  {"file": "IMG_6298.JPG", "id": "pic07"},
-  {"file": "IMG_6316.JPG", "id": "pic08"},
-  {"file": "IMG_6431.JPG", "id": "pic09"},
-  {"file": "IMG_6497.JPG", "id": "pic10"},
-  {"file": "IMG_6504.JPG", "id": "pic11"},
-  {"file": "IMG_6510.JPG", "id": "pic12"}];
+var photoList = [
+  {"file": "IMG_20191019_082126988.jpg", "id": "pic01"},
+  {"file": "IMG_20191021_191908189.jpg", "id": "pic02"},
+  {"file": "IMG_8808.jpg", "id": "pic03"},
+  {"file": "IMG_9180.jpg", "id": "pic04"},
+  {"file": "IMG_9534.jpg", "id": "pic05"},
+  {"file": "IMG_9717.jpg", "id": "pic06"},
+  {"file": "IMG_9750.jpg", "id": "pic07"},
+  {"file": "IMG_9856.jpg", "id": "pic08"},
+  {"file": "IMG_9858.jpg", "id": "pic09"},
+  {"file": "IMG_9883.jpg", "id": "pic10"}];
 var imageIndex = 0;
 var photoDelay = 30000;
 var previousPhoto;
