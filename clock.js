@@ -1,17 +1,20 @@
+function getOrdinal(number){
+    if (((number % 10) == 1) && (number != 11))
+      return number + "st";
+    else if (((number % 10) == 2) && (number != 12))
+      return number + "nd";
+    else if (((number % 10) == 3) && (number != 13))
+      return number + "rd";
+    else
+      return number + "th";
+}
+
 function updateClock(){
   var d = new Date();
   var h = d.getHours();
   var ampm = "";
   var month = months[d.getMonth()];
-  var dateString;
-  if (d.getDate() == 1)
-    dateString = "1st";
-  else if (d.getDate() == 2)
-    dateString = "2nd";
-  else if (d.getDate() == 3)
-    dateString = "3rd";
-  else
-    dateString = d.getDate() + "th";
+  var dateString = getOrdinal(d.getDate());
 
   // Sort out the AM/PM/noon/midnight thing
   if(h >= 12){
