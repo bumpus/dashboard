@@ -1,1 +1,5 @@
 darksky.inc
+composer.lock
+composer.json
+credentials.json
+vendor/*
