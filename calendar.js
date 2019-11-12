@@ -10,6 +10,7 @@ function loadCalendar(){
 }
 
 function displayData(data){
+  $('#Calendar').empty();
   data.forEach(processStartEnd);
 }
 
