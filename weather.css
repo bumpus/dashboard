@@ -47,6 +47,13 @@
 }
 
 
+#weather > #current > .alert{
+  position: absolute;
+  font-size: 2em;
+  color: red;
+  right: 0px;
+}
+
 /* daily forecast items */
 #week > .weekSummary {
   text-align : center;
