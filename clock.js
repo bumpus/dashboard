@@ -30,7 +30,7 @@ function updateClock(){
   }
 
   $("#clock").html("<div id='clockweekday'>"+days[d.getDay()]+"</div>"+
-    "<div id='clocktime'>"+h+":"+d.getMinutes().toString().padStart(2, '0')+":"+d.getSeconds().toString().padStart(2, '0')+" "+ampm+"</div>"+
+    "<div id='clocktime'>"+h+":"+d.getMinutes().toString().padStart(2, '0')+"<span class='seconds'>:"+d.getSeconds().toString().padStart(2, '0')+"</span> "+ampm+"</div>"+
     "<div id='clockdate'>"+month+" "+dateString+", "+d.getFullYear()+"</div>");
 }
 

@@ -13,7 +13,11 @@
 
 #clocktime {
   color : red;
-  font-size : 8em;
+  font-size : 9em;
+}
+
+#clocktime .seconds {
+  font-size : 0.5em;
 }
 
 #clockdate {
