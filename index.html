@@ -8,10 +8,12 @@
     <script src="menu.js"></script>
     <script src="photos.js"></script>
     <script src="clock.js"></script>
+    <script src="calendar.js"></script>
     <link rel="stylesheet" type="text/css" href="weather.css">
     <link rel="stylesheet" type="text/css" href="menu.css">
     <link rel="stylesheet" type="text/css" href="photos.css">
     <link rel="stylesheet" type="text/css" href="clock.css">
+    <link rel="stylesheet" type="text/css" href="calendar.css">
     <script>
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -31,27 +33,15 @@ $(document).ready(function(){
   loadCalendar();
   loadPhoto();
 });
-
-function loadCalendar(){
-  $('#gcalendar').attr('src', $('#gcalendar').attr('src'));
-}
     </script>
     <style>
 body {
   background : lightcyan;
 }
-
-.calendar {
-  position : fixed;
-  top : 0;
-  left : 0;
-}
     </style>
   </head>
   <body>
-    <div class="calendar">
-      <iframe id="gcalendar" src="https://calendar.google.com/calendar/embed?height=1080&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=YWRhbUBidW1wLnVz&amp;src=aW9uMTRvbzhxdjVidDRoMHZtbjJnZ21naGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=bWVnYW5AYnVtcC51cw&amp;src=bmlja0BidW1wLnVz&amp;src=YnVtcC51c185ZXV2NDAzYnNwMnZybGM4ZWpodDUxYjNnb0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;src=c2hlbGxleUBidW1wLnVz&amp;src=bmNhYWZfMjhfJTQ5b3dhKyU0OGF3a2V5ZXMjc3BvcnRzQGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aHQzamxmYWFjNWxmZDYyNjN1bGZoNHRxbDhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dHJvb3AzM2NyQGdtYWlsLmNvbQ&amp;src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%23F6BF26&amp;color=%237986CB&amp;color=%23009688&amp;color=%238E24AA&amp;color=%23EF6C00&amp;color=%23F09300&amp;color=%23616161&amp;color=%23009688&amp;color=%230B8043&amp;showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA" style="border-width:0" width="400" height="1080" frameborder="0" scrolling="no"></iframe>
-    </div>
+    <div id="Calendar"></div>
     <div id="weather"></div>
     <div id="clock"></div>
     <div id="menus">
