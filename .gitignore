@@ -1,5 +1,5 @@
 darksky.inc
 composer.lock
 composer.json
-credentials.json
+client_secrets.json
 vendor/*
