@@ -3,7 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 session_start();
 
-$MAX_EVENTS = 15;
+$MAX_EVENTS = 20;
 
 /**
  * Returns an authorized API client.
