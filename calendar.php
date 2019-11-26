@@ -1,40 +1,8 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-
-session_start();
+require __DIR__ . 'config.inc';
 
 $MAX_EVENTS = 30;
-
-/**
- * Returns an authorized API client.
- * @return Google_Client the authorized client object
- */
-function getClient()
-{
-    $client = new Google_Client();
-    $client->setAuthConfig('client_secrets.json');
-    $client->addScope(Google_Service_Calendar::CALENDAR_READONLY);
-
-    ob_start();
-    var_dump($_SESSION );
-    $contents = ob_get_contents();
-    ob_end_clean();
-    error_log("_SESSION contains: " . $contents );
-
-    if(isset($_SESSION['access_token']) && $_SESSION['access_token']){
-      $client->setAccessToken($_SESSION['access_token']);
-      error_log("Had an access_token");
-    }
-    else
-    {
-      error_log("Didn't have no access_token");
-      $redirect_uri = 'https://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php';
-      header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-      $client = NULL;
-    }
-
-    return $client;
-}
 
 /* sorts two calendar entries Criteria is as follows:
 Earlier starting event comes first
@@ -63,29 +31,8 @@ function calendarEntrySort($a, $b){
     return $a_dateTime > $b_dateTime;
 }
 
-// Get the API client and construct the service object.
-$client = getClient();
-if(NULL==$client)
-{
-  // If we need to authenticate with google, just quit and let that process go.
-  return;
-}
-
 $service = new Google_Service_Calendar($client);
 
-$dashboardCalendars =
-    [
-        "troop33cr@gmail.com",
-        "bump.us_9euv403bsp2vrlc8ejht51b3go@group.calendar.google.com",
-        "shelley@bump.us",
-        "ion14oo8qv5bt4h0vmn2ggmghc@group.calendar.google.com",
-        "megan@bump.us",
-        "adam@bump.us",
-        "nick@bump.us",
-        "en.usa#holiday@group.v.calendar.google.com",
-        "ht3jlfaac5lfd6263ulfh4tql8@group.calendar.google.com",
-        "ncaaf_28_%49owa+%48awkeyes#sports@group.v.calendar.google.com"
-    ];
 // Print the next 10 events in each calendar.
 $optParams = array(
   'maxResults' => $MAX_EVENTS,

@@ -1,10 +1,14 @@
 function loadCalendar(){
   // call to get data from the server. Once the data is received,
   // hand it off to a display function
-  $.getJSON("calendar.php", "", displayData)
+  // If we can't load JSON, it's likely an authentication failure
+  // Reload the whole page to get logged in again.
+  console.log("Reloading Calendar Data!");
+  $.getJSON("calendar.php", "", displayData).fail(function() {console.log("Failed to load calendar. Reloading Page!"); location.reload() });
 }
 
 function displayData(data){
+  console.log("Got calendar data. Clearing and displaying new events");
   $('#Calendar').empty();
   data.forEach(processStartEnd);
 }
@@ -101,18 +105,18 @@ function loadEvent(calendarEvent){
   //First Style for the all day events
   if (null != calendarEvent.start.date){
     if (calendarEvent.startsBeforeDate){
-      eventString += "« ";
+      eventString += "<< ";
     }
     eventString += calendarEvent.summary;
     if (calendarEvent.endsAfterDate){
-      eventString += " »";
+      eventString += " >>";
     }
   }else{
     // do the specific time format instead
     let ampm = "";
     let h = "";
     if (calendarEvent.startsBeforeDate){
-      eventString += "« ";
+      eventString += "<< - ";
     }else{
       h = calendarEvent.startDate.getHours()
 
@@ -128,10 +132,10 @@ function loadEvent(calendarEvent){
           h = 12;
         }
       }
-      eventString += h + ":" + calendarEvent.startDate.getMinutes().toString().padStart(2, "0") + ampm + " ";
+      eventString += h + ":" + calendarEvent.startDate.getMinutes().toString().padStart(2, "0") + ampm + " - ";
     }
     if (calendarEvent.endsAfterDate){
-      eventString += "» ";
+      eventString += ">> ";
     }else{
       h = calendarEvent.endDate.getHours()
 

@@ -1,4 +1,5 @@
 darksky.inc
+config.inc
 composer.lock
 composer.json
 client_secrets.json
