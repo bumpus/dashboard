@@ -55,7 +55,9 @@ function processStartEnd(calendarEvent){
     }
 
     // Starting date is established. Keep track of what the following day is.
-    nextDay.setDate(calendarEvent.startDate.getDate()+1);
+    nextDay = calendarEvent.startDate; // Start from the starting date
+    nextDay.setHours(0, 0, 0, 0); // Set back to midnight
+    nextDay.setDate(nextDay.getDate()+1); // Add one day
 
     do{
       calendarEvent.endsAfterDate = (nextDay.getTime() < calendarEvent.endDate.getTime());
@@ -77,9 +79,12 @@ function processStartEnd(calendarEvent){
     }
     
     // Starting date is established. Keep track of what the following day is.
-    nextDay.setDate(calendarEvent.startDate.getDate()+1);
+    nextDay = calendarEvent.startDate; // Start from the starting date
+    nextDay.setHours(0, 0, 0, 0); // Set back to midnight
+    nextDay.setDate(nextDay.getDate()+1); // Add one day
 
     do{
+      console.log("nextDay.getTime() = " + nextDay.getTime() + "calendarEvent.endDate.getTime() = " + calendarEvent.endDate.getTime());
       calendarEvent.endsAfterDate = (nextDay.getTime() < calendarEvent.endDate.getTime());
       loadEvent(calendarEvent);
       //Advance to next date
