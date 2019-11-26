@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . 'config.inc';
+require __DIR__ . '/config.inc';
 
 $MAX_EVENTS = 30;
 

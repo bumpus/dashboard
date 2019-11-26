@@ -1,5 +1,7 @@
+<?php
 // Provide a list of calendars to show in the events list
 $dashboardCalendars = [ ];
 
 // Provide the id of the album to get pictures from
-$dashboardAlbum  = ""
+$dashboardAlbum  = "";
+?>
