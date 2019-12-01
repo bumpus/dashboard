@@ -36,7 +36,7 @@ function processStartEnd(calendarEvent){
 
   let tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
-  let nextDay = tomorrow;
+  let nextDay = new Date(tomorrow);
   
   // Initialize to false. Will set true if needed later.
   calendarEvent.startsBeforeDate = false;
@@ -55,7 +55,7 @@ function processStartEnd(calendarEvent){
     }
 
     // Starting date is established. Keep track of what the following day is.
-    nextDay = calendarEvent.startDate; // Start from the starting date
+    nextDay = new Date(calendarEvent.startDate); // Start from the starting date
     nextDay.setHours(0, 0, 0, 0); // Set back to midnight
     nextDay.setDate(nextDay.getDate()+1); // Add one day
 
@@ -79,7 +79,7 @@ function processStartEnd(calendarEvent){
     }
     
     // Starting date is established. Keep track of what the following day is.
-    nextDay = calendarEvent.startDate; // Start from the starting date
+    nextDay = new Date(calendarEvent.startDate); // Start from the starting date
     nextDay.setHours(0, 0, 0, 0); // Set back to midnight
     nextDay.setDate(nextDay.getDate()+1); // Add one day
 
