@@ -4,7 +4,7 @@ function loadCalendar(){
   // If we can't load JSON, it's likely an authentication failure
   // Reload the whole page to get logged in again.
   console.log("Reloading Calendar Data!");
-  $.getJSON("calendar.php", "", displayData).fail(function() {console.log("Failed to load calendar. Reloading Page!"); location.href = '/oauth2callback.php' });
+  $.getJSON("calendar.php", "", displayData).fail(function() {console.log("Failed to load calendar. Return to Login Page!"); location.href = '/oauth2callback.php' });
 }
 
 function displayData(data){
@@ -84,7 +84,6 @@ function processStartEnd(calendarEvent){
     nextDay.setDate(nextDay.getDate()+1); // Add one day
 
     do{
-      console.log("nextDay.getTime() = " + nextDay.getTime() + "calendarEvent.endDate.getTime() = " + calendarEvent.endDate.getTime());
       calendarEvent.endsAfterDate = (nextDay.getTime() < calendarEvent.endDate.getTime());
       loadEvent(calendarEvent);
       //Advance to next date
