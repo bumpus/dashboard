@@ -4,7 +4,7 @@ function loadCalendar(){
   // If we can't load JSON, it's likely an authentication failure
   // Reload the whole page to get logged in again.
   console.log("Reloading Calendar Data!");
-  $.getJSON("calendar.php", "", displayData).fail(function() {console.log("Failed to load calendar. Reloading Page!"); location.reload() });
+  $.getJSON("calendar.php", "", displayData).fail(function() {console.log("Failed to load calendar. Reloading Page!"); location.href = '/oauth2callback.php' });
 }
 
 function displayData(data){
