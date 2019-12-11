@@ -3,12 +3,12 @@
   <head>
     <title>Bump.us Dashboard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="skycons.js"></script>
-    <script src="weather.js"></script>
-    <script src="menu.js"></script>
-    <script src="photos.js"></script>
-    <script src="clock.js"></script>
-    <script src="calendar.js"></script>
+    <script src="skycons.js" defer></script>
+    <script src="weather.js" defer></script>
+    <script src="menu.js" defer></script>
+    <script src="photos.js" defer></script>
+    <script src="clock.js" defer></script>
+    <script src="calendar.js" defer></script>
     <link rel="stylesheet" type="text/css" href="weather.css">
     <link rel="stylesheet" type="text/css" href="menu.css">
     <link rel="stylesheet" type="text/css" href="photos.css">
