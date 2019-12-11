@@ -1,6 +1,19 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
+use Google\Cloud\Firestore\FirestoreClient;
+
+$projectId = getenv('GOOGLE_CLOUD_PROJECT');
+// Instantiate the Firestore Client for your project ID.
+$firestore = new FirestoreClient([
+    'projectId' => $projectId,
+]);
+
+$handler = $firestore->sessionHandler(['gcLimit' => 500]);
+
+// Configure PHP to use the the Firebase session handler.
+session_set_save_handler($handler, true);
+session_save_path('sessions');
 session_start();
 
 // Sort out what file is being requested
