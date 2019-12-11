@@ -13,7 +13,7 @@ $client->setAuthConfig('client_secrets.json');
 $client->setAccessType('offline');
 $client->setApprovalPrompt ("force");
 $client->setIncludeGrantedScopes(true);
-$client->addScope([Google_Service_Calendar::CALENDAR_READONLY, Google_Service_PhotosLibrary::PHOTOSLIBRARY_READONLY]);
+$client->addScope([profile, email, Google_Service_Calendar::CALENDAR_READONLY, Google_Service_PhotosLibrary::PHOTOSLIBRARY_READONLY]);
 $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 
 ob_start();
@@ -22,7 +22,7 @@ $contents = ob_get_contents();
 ob_end_clean();
 error_log("_SESSION contains: " . $contents );
 
-if(!(isset($_SESSION['access_token']) && $_SESSION['access_token'])) {
+if(!(isset($_SESSION['access_token']) && $_SESSION['access_token']) || ($file == '/oauth2callback.php')) {
   error_log("index.php: No access_token in SESSION");
   if (! isset($_GET['code'])) {
     error_log("oauth2callback.php \$_GET['code'] is not set");
@@ -97,6 +97,10 @@ case '/weather.php' :
 case '/calendar.php' :
   error_log("index.php: routing to calendar.php");
   require __DIR__ . '/calendar.php';
+  break;
+case '/config.php' :
+  error_log("index.php: routing to config.php");
+  require __DIR__ . '/config.php';
   break;
 default:
   http_response_code(404);
