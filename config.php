@@ -28,6 +28,7 @@ if (isset($_POST['calendars']) || isset($_POST['album'])){
     $docref->set(['album' => $_POST['album']], ['merge' => true]);
   }
   echo "<h1>Updated Settings</h1>";
+  echo "<script> location.href = '/'; </script>";
 }
 else{
   echo '<form action="config.php" method="post">';

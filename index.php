@@ -71,6 +71,30 @@ if(!(isset($_SESSION['access_token']) && $_SESSION['access_token']) || ($file ==
 $tokeninfo = $client->verifyIdToken();
 $user_email = $tokeninfo['email'];
 
+$docRef = $firestore->collection('settings')->document($user_email);
+$snapshot = $docRef->snapshot();
+
+$dashboardCalendars = NULL;
+$dashboardAlbum = NULL;
+
+if ($snapshot->exists()) {
+  $data = $snapshot->data();
+  if (array_key_exists('calendars', $data)){
+    $dashboardCalendars = $snapshot->data()['calendars'];
+  }else{
+    $file = '/config.php';
+  }
+
+  if (array_key_exists('album', $data)){
+    $dashboardAlbum = $snapshot->data()['album'];
+  }else{
+    $file = '/config.php';
+  }
+} else {
+  printf('Document %s does not exist!' . PHP_EOL, $snapshot->id());
+  $file = '/config.php';
+}
+
 switch ($file) {
 case '' :
 case '/' :
