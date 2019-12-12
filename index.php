@@ -25,11 +25,15 @@ $client->setAuthConfig('client_secrets.json');
 $client->setAccessType('offline');
 $client->setApprovalPrompt ("force");
 $client->setIncludeGrantedScopes(true);
-$client->addScope(["profile", "email", Google_Service_Calendar::CALENDAR_READONLY, Google_Service_PhotosLibrary::PHOTOSLIBRARY_READONLY]);
+$client->addScope([
+  Google_Service_Plus::USERINFO_EMAIL,
+  Google_Service_Plus::USERINFO_PROFILE,
+  Google_Service_Calendar::CALENDAR_READONLY,
+  Google_Service_PhotosLibrary::PHOTOSLIBRARY_READONLY
+]);
 $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 
 if(!(isset($_SESSION['access_token']) && $_SESSION['access_token']) || ($file == '/oauth2callback.php')) {
-  error_log("index.php: No access_token in SESSION");
   if (! isset($_GET['code'])) {
     $auth_url = $client->createAuthUrl();
     header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
@@ -50,7 +54,6 @@ if(!(isset($_SESSION['access_token']) && $_SESSION['access_token']) || ($file ==
     {
       $client->refreshToken($_SESSION['refresh_token']);
       $_SESSION['access_token'] = $client->getAccessToken();
-
     }
     else
     {
@@ -63,6 +66,10 @@ if(!(isset($_SESSION['access_token']) && $_SESSION['access_token']) || ($file ==
 
   }
 }
+
+# get the id of the logged in user and retreive their configuration:
+$tokeninfo = $client->verifyIdToken();
+$user_email = $tokeninfo['email'];
 
 switch ($file) {
 case '' :
@@ -85,3 +92,4 @@ default:
   break;
 }
 ?>
+
