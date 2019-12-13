@@ -111,6 +111,9 @@ case '/calendar.php' :
 case '/config.php' :
   require __DIR__ . '/config.php';
   break;
+case '/photos.php' :
+  require __DIR__ . '/photos.php';
+  break;
 default:
   http_response_code(404);
   break;
