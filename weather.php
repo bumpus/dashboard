@@ -25,6 +25,8 @@ class WeekForecast{
      $results['current']['pop'] = $this->forecast_php->currently->precipProbability;
      $results['current']['icon'] = $this->forecast_php->currently->icon;
      $results['current']['summary'] = $this->forecast_php->currently->summary;
+     $results['current']['windSpeed'] = round($this->forecast_php->currently->windSpeed);
+     $results['current']['windBearing'] = $this->forecast_php->currently->windBearing;
      if(isset($this->forecast_php->alerts)){
        $results['current']['alert'] = true;
      }else{
@@ -33,16 +35,25 @@ class WeekForecast{
 
      $results['daily']['summary'] = $this->forecast_php->daily->summary;
 
-     $timezone = "America/Chicago";
+     $timeZone = new DateTimeZone($this->forecast_php->timezone);
      foreach($this->forecast_php->daily->data as $day){
        $date = new DateTime("@$day->time");
-       $date->setTimezone(new DateTimeZone($timezone));
+       $date->setTimezone($timeZone);
        $weekday = $date->format('l');
        $results['daily']['data'][$weekday]['icon'] = $day->icon;
        $results['daily']['data'][$weekday]['pop'] = $day->precipProbability;
        $results['daily']['data'][$weekday]['low'] = round($day->temperatureLow);
        $results['daily']['data'][$weekday]['high'] = round($day->temperatureHigh);
      }
+
+     //Get almanac data from first day in the daily range
+     $sunriseTime = new DateTime("@" . $this->forecast_php->daily->data[0]->sunriseTime);
+     $sunriseTime->setTimezone($timeZone);
+     $sunsetTime = new DateTime("@" . $this->forecast_php->daily->data[0]->sunsetTime);
+     $sunsetTime->setTimezone($timeZone);
+     $results['almanac']['sunrise'] = $sunriseTime->format("g:i");
+     $results['almanac']['sunset'] = $sunsetTime->format("g:i");
+     $results['almanac']['moonphase'] = $this->forecast_php->daily->data[0]->moonPhase;
 
       return json_encode($results);
    }
