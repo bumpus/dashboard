@@ -18,17 +18,23 @@
   left : 230px;
   float : left;
   position : absolute;
-  width : 770px;
+  width: 880px;
 }
 
 /* Current box items */
 #weather > #current > .currentSummary{
   position : absolute;
   bottom : 1px;
-  text-align : center;
-  width : 100%
+  text-align: left;
+  width : 100%;
 }
 
+#weather > #current > .currentWind{
+  position : absolute;
+  bottom : 1px;
+  text-align: right;
+  width : 100%;
+}
 #weather > #current > .currentTemperature{
   position : absolute;
   font-size : 5em;
@@ -102,3 +108,32 @@
   left : 25px;
   top : 25px;
 }
+
+.dayContainer > .sunrise{
+  position : absolute;
+  left : 2px;
+  top : 1px;
+}
+
+.sunrise > svg {
+    height: 20px;
+}
+
+.dayContainer > .sunset{
+  position : absolute;
+  left : 2px;
+  bottom : 1px;
+}
+
+
+.sunset > svg {
+    height : 20px;
+}
+
+.moonphase > svg {
+  position : absolute;
+  height : 50px;
+  left: 42px;
+  top: 25px;
+}
+
