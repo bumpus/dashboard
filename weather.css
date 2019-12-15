@@ -41,6 +41,11 @@
   left : 3px;
 }
 
+.currentTemperature > svg {
+    height: 15px;
+    vertical-align: top;
+}
+
 #weather > #current > .currentPop{
   position : absolute;
   left : 2px;
@@ -91,12 +96,22 @@
   left : 2px;
 }
 
+ {
+  height : 15px;
+}
+
 .dayContainer > .dailyHigh{
   position : absolute;
   top : 1px;
   left : 2px;
 }
 
+.dayContainer > .dailyHigh > svg,
+.dayContainer > .dailyLow > svg,
+.dayContainer > .dailyPop > svg {
+  height : 15px;
+  width: 15px;
+}
 .dayContainer > .dailyPop{
   position : absolute;
   top : 1px;
@@ -115,11 +130,6 @@
   top : 1px;
 }
 
-.sunrise > svg {
-  height: 20px;
-  fill : grey;
-}
-
 .dayContainer > .sunset{
   position : absolute;
   left : 2px;
@@ -127,7 +137,8 @@
 }
 
 
-.sunset > svg {
+.dayContainer > .sunrise > svg,
+.dayContainer > .sunset > svg {
   height : 20px;
   fill : grey;
 }

@@ -3,7 +3,7 @@
 var sunriseIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="36" viewBox="0 0 48 36"><path d="M12.7 9.9 9.9 7c-0.8-0.8-2-0.8-2.8 0-0.8 0.8-0.8 2 0 2.8l2.8 2.8c0.8 0.8 2 0.8 2.8 0 0.8-0.8 0.8-2 0-2.8zM46 22h-4c-1.1 0-2 0.9-2 2 0 1.1 0.9 2 2 2h4c1.1 0 2-0.9 2-2 0-1.1-0.9-2-2-2zm-40 0h-4c-1.1 0-2 0.9-2 2 0 1.1 0.9 2 2 2h4c1.1 0 2-0.9 2-2 0-1.1-0.9-2-2-2zm28 10H14c-1.1 0-2 0.9-2 2 0 1.1 0.9 2 2 2h20c1.1 0 2-0.9 2-2 0-1.1-0.9-2-2-2zm7-25c-0.8-0.8-2-0.8-2.8 0l-2.8 2.8c-0.8 0.8-0.8 2 0 2.8 0.8 0.8 2 0.8 2.8 0l2.8-2.8c0.8-0.8 0.8-2 0-2.8zm-17 1c1.1 0 2-0.9 2-2v-4c0-1.1-0.9-2-2-2-1.1 0-2 0.9-2 2v4c0 1.1 0.9 2 2 2zm0 4c-6.6 0-12 5.4-12 12 0 1.4 0.3 2.7 0.7 4H17.1C16.4 26.8 16 25.5 16 24c0-4.4 3.6-8 8-8 4.4 0 8 3.6 8 8 0 1.5-0.4 2.8-1.1 4h4.4c0.4-1.3 0.7-2.6 0.7-4 0-6.6-5.4-12-12-12zm0 16.2c0.6 0 1-0.4 1-1v-3.8l2.5 2.5c0.4 0.4 1 0.4 1.4 0 0.4-0.4 0.4-1 0-1.4l-4.2-4.2c-0.4-0.4-1-0.4-1.4 0l-4.2 4.2c-0.4 0.4-0.4 1 0 1.4 0.4 0.4 1 0.4 1.4 0l2.5-2.5v3.8c0 0.6 0.4 1 1 1z"/></svg>';
 var sunsetIcon  = '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="36" viewBox="0 0 48 36"><path d="m46 26h-4c-1.1 0-2-0.9-2-2 0-1.1 0.9-2 2-2h4c1.1 0 2 0.9 2 2 0 1.1-0.9 2-2 2zM38.1 12.7c-0.8 0.8-2 0.8-2.8 0-0.8-0.8-0.8-2 0-2.8l2.8-2.8c0.8-0.8 2-0.8 2.8 0 0.8 0.8 0.8 2 0 2.8zm-2.8 15.3h-4.4c0.7-1.2 1.1-2.5 1.1-4 0-4.4-3.6-8-8-8-4.4 0-8 3.6-8 8 0 1.5 0.4 2.8 1.1 4h-4.4c-0.4-1.3-0.7-2.6-0.7-4 0-6.6 5.4-12 12-12 6.6 0 12 5.4 12 12 0 1.4-0.3 2.7-0.7 4zM24 8c-1.1 0-2-0.9-2-2V2c0-1.1 0.9-2 2-2 1.1 0 2 0.9 2 2v4c0 1.1-0.9 2-2 2zM9.9 12.7 7 9.9c-0.8-0.8-0.8-2 0-2.8 0.8-0.8 2-0.8 2.8 0l2.8 2.8c0.8 0.8 0.8 2 0 2.8-0.8 0.8-2 0.8-2.8 0zM8 24c0 1.1-0.9 2-2 2H2c-1.1 0-2-0.9-2-2 0-1.1 0.9-2 2-2h4c1.1 0 2 0.9 2 2zm16-4c0.6 0 1 0.4 1 1v3.8l2.5-2.5c0.4-0.4 1-0.4 1.4 0 0.4 0.4 0.4 1 0 1.4l-4.2 4.2c-0.4 0.4-1 0.4-1.4 0l-4.2-4.2c-0.4-0.4-0.4-1 0-1.4 0.4-0.4 1-0.4 1.4 0l2.5 2.5v-3.8c0-0.6 0.4-1 1-1zm-10 12h20c1.1 0 2 0.9 2 2 0 1.1-0.9 2-2 2H14c-1.1 0-2-0.9-2-2 0-1.1 0.9-2 2-2z"/></svg>';
 var tempIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="36" viewBox="0 0 16 36"><path d="m8 36c-4.4 0-8-3.6-8-8 0-2 0.8-3.9 2-5.3V6c0-3.3 2.7-6 6-6 3.3 0 6 2.7 6 6V22.7c1.2 1.4 2 3.3 2 5.3 0 4.4-3.6 8-8 8zm2-11.4v-4.3-10.3-4c0-1.1-0.9-2-2-2-1.1 0-2 0.9-2 2v4 10.3 4.3c-1.2 0.7-2 2-2 3.4 0 2.2 1.8 4 4 4 2.2 0 4-1.8 4-4 0-1.5-0.8-2.8-2-3.4z"/></svg>';
-var rainIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"><path d="m36 31.3v-4.4c2.4-1.4 4-4 4-6.9 0-4.4-3.6-8-8-8-1.6 0-3.1 0.5-4.3 1.3C26.4 8 21.7 4 16 4 9.4 4 4 9.4 4 16c0 3.6 1.6 6.7 4 8.9v4.9c-4.8-2.8-8-7.9-8-13.8C0 7.2 7.2 0 16 0c6 0 11.2 3.3 14 8.2 0.7-0.1 1.3-0.2 2-0.2 6.6 0 12 5.4 12 12 0 5.2-3.3 9.7-8 11.3zm-22-11.3c1.1 0 2 0.9 2 2v16c0 1.1-0.9 2-2 2-1.1 0-2-0.9-2-2v-16c0-1.1 0.9-2 2-2zm8 4c1.1 0 2 0.9 2 2v16c0 1.1-0.9 2-2 2-1.1 0-2-0.9-2-2v-16c0-1.1 0.9-2 2-2zm8-4c1.1 0 2 0.9 2 2v16c0 1.1-0.9 2-2 2-1.1 0-2-0.9-2-2v-16c0-1.1 0.9-2 2-2z"/></svg>';
+var rainIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"><path d="m36 31.3v-4.4c2.4-1.4 4-4 4-6.9 0-4.4-3.6-8-8-8-1.6 0-3.1 0.5-4.3 1.3C26.4 8 21.7 4 16 4 9.4 4 4 9.4 4 16c0 3.6 1.6 6.7 4 8.9v4.9C3.2 27 0 21.9 0 16 0 7.2 7.2 0 16 0 22 0 27.2 3.3 30 8.2 30.7 8.1 31.3 8 32 8c6.6 0 12 5.4 12 12 0 5.2-3.3 9.7-8 11.3zM14 20c1.1 0 2 0.9 2 2v16c0 1.1-0.9 2-2 2-1.1 0-2-0.9-2-2V22c0-1.1 0.9-2 2-2zm8 4c1.1 0 2 0.9 2 2v16c0 1.1-0.9 2-2 2-1.1 0-2-0.9-2-2V26c0-1.1 0.9-2 2-2zm8-4c1.1 0 2 0.9 2 2v16c0 1.1-0.9 2-2 2-1.1 0-2-0.9-2-2V22c0-1.1 0.9-2 2-2z"/></svg>';
 
 //Array of moonphases
 var moonIcon = [
@@ -34,7 +34,7 @@ function displayWeather(data){
   $("#weather").empty();
   $("#weather").append("<div id='current'></div>")
   $("#current").append(`<div class='currentSummary'>${data.current.summary}</div>`); 
-  $("#current").append(`<div class='currentTemperature'>${data.current.temperature}&#176;</div>`);
+  $("#current").append(`<div class='currentTemperature' style = 'color : ${getColorByTemp(data.current.temperature)}; fill : ${getColorByTemp(data.current.temperature)}'>${tempIcon}${data.current.temperature}&#176;</div>`);
   $("#current").append("<div class='currentPop'>" + Math.round(data.current.pop * 100) + "%</div>");
   $("#current").append(`<div class='currentIcon'><canvas id="current-icon" width="96" height="96"></div>`);
   $("#current").append("<div class= 'currentWind'>" + data.current.windSpeed + "mph - " + direction(data.current.windBearing) + "</div>");
@@ -50,9 +50,9 @@ function displayWeather(data){
     $("#week").append(`<div class='day' id='${day}' >`);
     $(`#${day}`).append(`<div class='dayName'>${day}</div>`);
     $(`#${day}`).append("<div class='dayContainer'></div>");
-    $(`#${day} > .dayContainer`).append(`<div class='dailyLow'>${data.daily.data[day].low}&#176;</div>`);
-    $(`#${day} > .dayContainer`).append(`<div class='dailyHigh'>${data.daily.data[day].high}&#176;</div>`);
-    $(`#${day} > .dayContainer`).append("<div class='dailyPop'>" + Math.round(data.daily.data[day].pop * 100) + "%</div>");
+    $(`#${day} > .dayContainer`).append(`<div class='dailyLow' style = 'color : ${getColorByTemp(data.daily.data[day].low)}; fill : ${getColorByTemp(data.daily.data[day].low)}'>${tempIcon}${data.daily.data[day].low}&#176;</div>`);
+    $(`#${day} > .dayContainer`).append(`<div class='dailyHigh' style = 'color : ${getColorByTemp(data.daily.data[day].high)}; fill : ${getColorByTemp(data.daily.data[day].high)}'>${tempIcon}${data.daily.data[day].high}&#176;</div>`);
+    $(`#${day} > .dayContainer`).append(`<div class='dailyPop'>${Math.round(data.daily.data[day].pop * 100)}%${rainIcon}</div>`);
     $(`#${day} > .dayContainer`).append(`<div class='dailyIcon'><canvas id="icon-${day}" width="48" height="48"></canvas></div>`);
 
     dailyskycons.add(`icon-${day}`, chooseIcon(data.daily.data[day].icon));
@@ -110,4 +110,38 @@ function direction(bearing){
   else ret = "N"; // 337-360/0-22
 
   return ret;
+}
+
+// Returns a suitable #RRGGBB color where
+// cold temperatures are blue and hot ones
+// are red.
+function getColorByTemp(temp){
+  var colorString = '#';
+  var minimum = -20;
+  var maximum = 110;
+  var range = maximum - minimum;
+  var redStart = 0x00;
+  var redEnd = 0xFF;
+  var greenStart = 0x00;
+  var greenEnd = 0x00;
+  var blueStart = 0xFF;
+  var blueEnd = 0x00;
+
+  if (temp < minimum){
+    temp = minimum;
+  }
+
+  if (temp > maximum){
+    temp = maximum;
+  }
+
+  var red = Math.round(redStart - ((redStart-redEnd)/(range))*(temp-minimum));
+  var green = Math.round(greenStart - ((greenStart-greenEnd)/(range))*(temp-minimum));
+  var blue = Math.round(blueStart - ((blueStart-blueEnd)/(range))*(temp-minimum));
+
+  colorString += ('0' + red.toString(16)).substr(-2);
+  colorString += ('0' + green.toString(16)).substr(-2);
+  colorString += ('0' + blue.toString(16)).substr(-2);
+
+  return colorString;
 }
