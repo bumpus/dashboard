@@ -116,7 +116,8 @@
 }
 
 .sunrise > svg {
-    height: 20px;
+  height: 20px;
+  fill : grey;
 }
 
 .dayContainer > .sunset{
@@ -127,7 +128,8 @@
 
 
 .sunset > svg {
-    height : 20px;
+  height : 20px;
+  fill : grey;
 }
 
 .moonphase > svg {
@@ -135,5 +137,6 @@
   height : 50px;
   left: 42px;
   top: 25px;
+  fill : grey;
 }
 
