@@ -40,10 +40,18 @@ class WeekForecast{
        $date = new DateTime("@$day->time");
        $date->setTimezone($timeZone);
        $weekday = $date->format('l');
-       $results['daily']['data'][$weekday]['icon'] = $day->icon;
-       $results['daily']['data'][$weekday]['pop'] = $day->precipProbability;
-       $results['daily']['data'][$weekday]['low'] = round($day->temperatureLow);
-       $results['daily']['data'][$weekday]['high'] = round($day->temperatureHigh);
+
+       //Check if this weekday is already present in the array.
+       //That might be the case if the  1st day and the last day are the
+       //same day of the week e.g. 1 week forecast is Sunday to Sunday, or perhaps
+       //the daily forecast goes out more than one week.
+       //If that's the case I only want the first one.
+       if (!array_key_exists($weekday, $results['daily']['data'])){
+         $results['daily']['data'][$weekday]['icon'] = $day->icon;
+         $results['daily']['data'][$weekday]['pop'] = $day->precipProbability;
+         $results['daily']['data'][$weekday]['low'] = round($day->temperatureMin);
+         $results['daily']['data'][$weekday]['high'] = round($day->temperatureMax);
+       }
      }
 
      //Get almanac data from first day in the daily range
