@@ -58,7 +58,7 @@ if(!(isset($_SESSION['access_token']) && $_SESSION['access_token']) || ($file ==
     else
     {
       error_log("No refresh token. responding with 401 status");
-      http_response_code(401); // Don't have a refresh code set unauthroized return code
+      http_response_code(403); // Don't have a refresh code set unauthroized return code
       $_SERVER['access_token'] = NULL; //NULL out expired access_token
       error_log("Removed access_token from   \$_SESSION");
       return;
@@ -116,6 +116,7 @@ case '/photos.php' :
   break;
 default:
   http_response_code(404);
+  echo "Not Found (404)";
   break;
 }
 ?>

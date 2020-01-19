@@ -6,7 +6,20 @@ var currentPhoto;
 
 function loadPhoto(){
   console.log("Loading Photo Album Data!");
-  $.getJSON("photos.php", "", startList).fail(function() {console.log("Failed to load photo album. Return to Login Page!"); location.href = '/config.php'});  
+  $.getJSON("photos.php", "", startList)
+    .fail(
+      function(xhr, textStatus, errorThrown) {
+        console.log(xhr);
+        console.log(textStatus);
+        console.log(errorThrown);
+        console.log(xhr.status);
+        if (403 == xhr.status){
+          console.log("Login failed. Redirect to config screen");
+          location.href = '/config.php');
+        }else{
+          console.log("Fetching photo album data failed.");
+      }
+    );
 }
 
 function startList(data){

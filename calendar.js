@@ -4,7 +4,20 @@ function loadCalendar(){
   // If we can't load JSON, it's likely an authentication failure
   // Bounce to the config page and attempt to fix.
   console.log("Reloading Calendar Data!");
-  $.getJSON("calendar.php", "", displayData).fail(function() {console.log("Failed to load calendar. Return to Login Page!"); location.href = '/config.php' });
+  $.getJSON("calendar.php", "", displayData)
+    .fail(
+      function(xhr, textStatus, errorThrown) {
+        console.log(xhr);
+        console.log(textStatus);
+        console.log(errorThrown);
+        console.log(xhr.status);
+        if (403 == xhr.status){
+          console.log("Login failed. Redirect to config screen");
+          location.href = '/config.php');
+        }else{
+          console.log("Fetching calendar data failed.");
+      }
+    );
 }
 
 function displayData(data){
