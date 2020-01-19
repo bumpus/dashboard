@@ -15,9 +15,10 @@ function loadPhoto(){
         console.log(xhr.status);
         if (403 == xhr.status){
           console.log("Login failed. Redirect to config screen");
-          location.href = '/config.php');
+          location.href = '/config.php';
         }else{
           console.log("Fetching photo album data failed.");
+        }
       }
     );
 }
