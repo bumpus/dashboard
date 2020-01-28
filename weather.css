@@ -79,9 +79,11 @@
 
 #week > .day {
   top: 25px;
-  width : 108px;
+  width : 106px;
   float : left;
   border : black 1px solid;
+  border-radius : 5px;
+  margin : 1px;
 }
 
 .day > .dayName{
