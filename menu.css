@@ -3,6 +3,7 @@
 }
 
 .school {
+  border-radius : 3px;
   background-color : lightgray;
 }
 
@@ -23,4 +24,9 @@
   position : fixed;
   right : 5px;
   bottom : 5px;
+}
+
+.menu {
+    border-radius: 10px;
+    padding:  3px;
 }

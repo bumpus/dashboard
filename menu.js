@@ -6,12 +6,12 @@ function loadMenus(){
   if(menuDate.getHours() > 12){
     menuDate.setDate(menuDate.getDate() + 1);
   }
-  $("#jefferson").html("<span class=school>Jefferson</span>");
+  $("#jefferson").html("<div class=school>Jefferson</div>");
   var url = "https://cr.nutrislice.com/menu/api/weeks/school/jefferson/menu-type/lunch/"+menuDate.getFullYear()+"/"+(menuDate.getMonth()+1).toString().padStart(2, '0')+"/"+menuDate.getDate().toString().padStart(2, '0')+"/?format=json-p&callback=?";
   $.getJSON(url, "", function (result) {
     parseMenu('#jefferson', result);
   });
-  $("#taft").html("<span class=school>Taft</span>");
+  $("#taft").html("<div class=school>Taft</div>");
   url = "https://cr.nutrislice.com/menu/api/weeks/school/taft/menu-type/lunch/"+menuDate.getFullYear()+"/"+(menuDate.getMonth()+1).toString().padStart(2, '0')+"/"+menuDate.getDate().toString().padStart(2, '0')+"/?format=json-p&callback=?";
   $.getJSON(url, "", function (result) {
     parseMenu('#taft', result);
@@ -22,7 +22,7 @@ function loadMenus(){
 }
 
 function parseMenu(school, result){
-  $(school+">span").append(" - "+ days[menuDate.getDay()] +"<br/>");
+  $(school+">div").append(" - "+ days[menuDate.getDay()]);
   if(result.days[menuDate.getDay()].menu_items.length != 0){
     $.each(result.days[menuDate.getDay()].menu_items ,function(index, item){
       if (item.text != ""){
