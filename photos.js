@@ -36,7 +36,7 @@ function startList(data){
 
 function nextPhoto(){
   $(".photos").append("<img style='display: none' id='"+currentPhoto.id+"' src='"+currentPhoto.url+"'></img>");
-  $("#"+previousPhoto.id).fadeOut("slow", reveal);
+  setTimeout(function(){$("#"+previousPhoto.id).fadeOut("slow", reveal);}, 1200);
 }
 
 function reveal(){
