@@ -35,6 +35,9 @@ class WeekForecast{
 
      $results['daily']['summary'] = $this->forecast_php->daily->summary;
 
+     //Create an empty array to store data for each day in.
+     $results['daily']['data'] = array();
+
      $timeZone = new DateTimeZone($this->forecast_php->timezone);
      foreach($this->forecast_php->daily->data as $day){
        $date = new DateTime("@$day->time");
