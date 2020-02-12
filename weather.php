@@ -27,10 +27,9 @@ class WeekForecast{
      $results['current']['summary'] = $this->forecast_php->currently->summary;
      $results['current']['windSpeed'] = round($this->forecast_php->currently->windSpeed);
      $results['current']['windBearing'] = $this->forecast_php->currently->windBearing;
-     if(isset($this->forecast_php->alerts)){
-       $results['current']['alert'] = true;
-     }else{
-       $results['current']['alert'] = false;
+     if($results['current']['alerts'] = count($this->forecast_php->alerts)){
+       // Get the title of the first alert. There may be more than one, but I'm only going to display the 1st
+       $results['current']['alertTitle'] = $this->forecast_php->alerts[0]->title;
      }
 
      $results['daily']['summary'] = $this->forecast_php->daily->summary;

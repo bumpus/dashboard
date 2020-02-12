@@ -40,8 +40,15 @@ function displayWeather(data){
   $("#current").append("<div class= 'currentWind'>" + data.current.windSpeed + "mph - " + direction(data.current.windBearing) + "</div>");
   currentskycons.add('current-icon', chooseIcon(data.current.icon));
 
-  if(data.current.alert){
-    $("#current").append("<div class='alert'>!</div>");
+  if(data.current.alerts){
+    $("#current").append("<div class='alert'></div>");
+    if(data.current.alerts > 1){
+      $(".alert").text(data.current.alerts+"!");
+    }else{
+      $(".alert").text("!");
+    }
+    $("#current").append("<div class='alert-title'></div>");
+    $(".alert-title").text(data.current.alertTitle);
   }
 
   $("#weather").append('<div id="week"></div>');

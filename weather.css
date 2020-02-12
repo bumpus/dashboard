@@ -65,6 +65,15 @@
   right: 0px;
 }
 
+#weather > #current > .alert-title{
+  bottom : -1em;
+  position : absolute;
+  text-align : center;
+  width : 100%;
+  color : red;
+}
+
+
 /* daily forecast items */
 #week > .weekSummary {
   text-align : center;
