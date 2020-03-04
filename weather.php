@@ -27,9 +27,12 @@ class WeekForecast{
      $results['current']['summary'] = $this->forecast_php->currently->summary;
      $results['current']['windSpeed'] = round($this->forecast_php->currently->windSpeed);
      $results['current']['windBearing'] = $this->forecast_php->currently->windBearing;
-     if($results['current']['alerts'] = count($this->forecast_php->alerts)){
-       // Get the title of the first alert. There may be more than one, but I'm only going to display the 1st
-       $results['current']['alertTitle'] = $this->forecast_php->alerts[0]->title;
+     if(isset($this->forecast_php->alerts)){
+       $results['current']['alerts'] = count($this->forecast_php->alerts);
+         // Get the title of the first alert. There may be more than one, but I'm only going to display the 1st
+         $results['current']['alertTitle'] = $this->forecast_php->alerts[0]->title;
+     }else{
+       $results['current']['alerts'] = 0;
      }
 
      $results['daily']['summary'] = $this->forecast_php->daily->summary;
@@ -61,8 +64,8 @@ class WeekForecast{
      $sunriseTime->setTimezone($timeZone);
      $sunsetTime = new DateTime("@" . $this->forecast_php->daily->data[0]->sunsetTime);
      $sunsetTime->setTimezone($timeZone);
-     $results['almanac']['sunrise'] = $sunriseTime->format("g:i");
-     $results['almanac']['sunset'] = $sunsetTime->format("g:i");
+     $results['almanac']['sunrise'] = $sunriseTime->format("g:i A");
+     $results['almanac']['sunset'] = $sunsetTime->format("g:i A");
      $results['almanac']['moonphase'] = $this->forecast_php->daily->data[0]->moonPhase;
 
       return json_encode($results);
