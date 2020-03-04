@@ -5,6 +5,7 @@ $service = new Google_Service_PhotosLibrary($client);
 
 $search = new Google_Service_PhotosLibrary_SearchMediaItemsRequest();
 $search->setAlbumId($dashboardAlbum);
+$search->setPageSize(100);
 
 $json_photos = array();
 try {
