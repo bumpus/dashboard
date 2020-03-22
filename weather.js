@@ -71,7 +71,7 @@ function displayWeather(data){
   $("#almanac > .dayContainer").append(`<div class="sunrise">${sunriseIcon}${data.almanac.sunrise}</div>`);
   $("#almanac > .dayContainer").append(`<div class="sunset">${sunsetIcon}${data.almanac.sunset}</div>`);
   // Math here converts from decimal moonphase 0=new 0.5 = full to one of the 8 icons in the array above
-  $("#almanac > .dayContainer").append(`<div class="moonphase">${moonIcon[Math.round((data.almanac.moonphase*8)%8)]}</div>`);
+  $("#almanac > .dayContainer").append(`<div class="moonphase">${moonIcon[Math.round(data.almanac.moonphase*8)%8]}</div>`);
 
   //Make the animated icons start animating
   currentskycons.play();
