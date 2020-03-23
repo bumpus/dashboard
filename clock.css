@@ -4,6 +4,7 @@
   font-family : Roboto, Arial, sans-serif;
   text-align : center;
   bottom : 0;
+  text-shadow : 2px 2px darkgray;
 }
 
 #clockweekday {

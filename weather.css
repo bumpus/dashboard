@@ -39,6 +39,7 @@
   position : absolute;
   font-size : 5em;
   left : 3px;
+  text-shadow : 2px 2px darkgray;
 }
 
 .currentTemperature > svg {
