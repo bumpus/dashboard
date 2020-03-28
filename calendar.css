@@ -13,8 +13,9 @@ div.day {
 div.event {
   font-size : 1.2em;
   font-weight : normal;
-  border : 1px solid darkgray;
   padding-left : 3px;
+  margin : 2px;
   border-radius : 10px;
+  box-shadow : 1px 1px;
 }
 
