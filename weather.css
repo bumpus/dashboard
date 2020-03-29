@@ -1,10 +1,11 @@
 #weather{
-  width : 1000px;
-  height : 120px;
+  width : 1110px;
+  height: 150px;
   position : fixed;
   top : 5px;
   left : 460px;
   font-family : sans-serif;
+  background-color: rgba(255,255,255,0.5);
 }
 
 #weather > #current{
@@ -24,14 +25,14 @@
 /* Current box items */
 #weather > #current > .currentSummary{
   position : absolute;
-  bottom : 1px;
+  bottom: 1em;
   text-align: left;
   width : 100%;
 }
 
 #weather > #current > .currentWind{
   position : absolute;
-  bottom : 1px;
+  bottom: 2em;
   text-align: right;
   width : 100%;
 }
@@ -50,7 +51,7 @@
 #weather > #current > .currentPop{
   position : absolute;
   left : 2px;
-  bottom : 20px;
+  bottom: 2em;
 }
 
 #weather > #current > .currentIcon{
@@ -67,7 +68,7 @@
 }
 
 #weather > #current > .alert-title{
-  bottom : -1em;
+  bottom: 0;
   position : absolute;
   text-align : center;
   width : 100%;
@@ -164,4 +165,3 @@
   top: 25px;
   fill : grey;
 }
-

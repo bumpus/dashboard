@@ -6,8 +6,9 @@ div#Calendar {
   width : 400px;
 }
 
-div.day {
+div#Calendar > div.day {
   font-weight: bold;
+  background: rgba(255,255,255,0.5);
 }
 
 div.event {
@@ -18,4 +19,3 @@ div.event {
   border-radius : 10px;
   box-shadow : 1px 1px;
 }
-

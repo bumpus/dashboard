@@ -14,11 +14,11 @@
 
 
 #taft{
-  background-color : violet;
+  background-color: rgba(238,130,238,0.5); /* css violet w/ alpha */
 }
 
 #jefferson{
-  background-color : lightskyblue;
+  background-color: rgba(135,206,250,0.5); /* css lightskyblue w/ alpha */
 }
 
 #menus {
@@ -33,4 +33,3 @@
     margin : 2px;
     box-shadow : 1px 1px;
 }
-

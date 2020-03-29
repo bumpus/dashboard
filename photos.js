@@ -27,15 +27,19 @@ function startList(data){
   //copy the received JSON data into the photoList array
   photoList = [];
   $.each(data, function (index, value) {
-    photoList.push({url:value['url'] + "=w640-h640", id:value['id']});
+    photoList.push({url:value['url'] + "=w1920-h1080", id:value['id']});
   });
   currentPhoto = photoList[imageIndex];
-  $(".photos").append("<img style='display: none' id='"+currentPhoto.id+"' src='"+currentPhoto.url+"'></img>");
+  var myhtml = "<div id='"+currentPhoto.id+"' style=\"display: none; background-image : url('"+currentPhoto.url+"')\"></div>";
+  console.log("Adding html: "+myhtml);
+  $(".photos").append(myhtml);
   reveal();
 }
 
 function nextPhoto(){
-  $(".photos").append("<img style='display: none' id='"+currentPhoto.id+"' src='"+currentPhoto.url+"'></img>");
+  var myhtml = "<div id='"+currentPhoto.id+"' style=\"display: none; background-image : url('"+currentPhoto.url+"')\"></div>";
+  console.log("Adding html: "+myhtml);
+  $(".photos").append(myhtml);
   setTimeout(function(){$("#"+previousPhoto.id).fadeOut("slow", reveal);}, 1200);
 }
 
