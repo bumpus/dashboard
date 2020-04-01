@@ -12,6 +12,22 @@ div.photos > div {
   height : 100%;
   display: block;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
 }
+
+div.photos > div > div.l {
+  position: fixed;
+  width:50%;
+  height:  100%;
+  background-size : cover;
+}
+
+div.photos > div > div.r {
+  position: fixed;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-size : cover;
+  right:  0px;
+}
+

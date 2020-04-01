@@ -16,7 +16,9 @@ try {
     foreach($response['mediaItems'] as $photo){
       array_push($json_photos, array( 
         'url' => $photo['baseUrl'],
-        'id' => $photo['id'])
+        'id' => $photo['id'],
+        'width' => $photo['mediaMetadata']['width'],
+        'height' => $photo['mediaMetadata']['height'])
       );
     }
 } catch (\Google\ApiCore\ApiException $e) {
