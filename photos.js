@@ -11,7 +11,6 @@ function sortList(){
     }
     var aspectRatio = photoList[i].width/photoList[i].height;
     if (aspectRatio >= 1.0){
-      console.log(i + " " + aspectRatio + "\n");
     }else{
       var j;
       for (j = ( i + 1); j < photoList.length; j++){
@@ -62,7 +61,7 @@ function generateHtml(){
 function startList(data){
   //copy the received JSON data into the photoList array
   photoList = [];
-  $.each(data, function (index, value {
+  $.each(data, function (index, value) {
     photoList.push({url:value['url'], id:value['id'], width:value['width'], height:value['height']});
   });
   //Sort out portrait mode pictures
@@ -71,14 +70,12 @@ function startList(data){
   //Initialize the current photo index
   currentPhoto = photoList[imageIndex];
   var myhtml = generateHtml();
-  console.log("Adding html: "+myhtml);
   $(".photos").append(myhtml);
   reveal();
 }
 
 function nextPhoto(){
   var myhtml = generateHtml();
-  console.log("Adding html: "+myhtml);
   $(".photos").append(myhtml);
   setTimeout(function(){$("#"+previousPhoto.id).fadeOut("slow", reveal);}, 1200);
 }
