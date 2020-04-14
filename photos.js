@@ -1,6 +1,7 @@
 var photoList;
 var imageIndex = 0;
 var photoDelay = 30000;
+var retryDelay = 10000;
 var previousPhoto;
 var currentPhoto;
 
@@ -39,6 +40,7 @@ function loadPhoto(){
           location.href = '/config.php';
         }else{
           console.log("Fetching photo album data failed.");
+          setTimeout(loadPhoto, retryDelay);
         }
       }
     );
