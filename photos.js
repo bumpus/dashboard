@@ -2,7 +2,8 @@ var photoList;
 var imageIndex = 0;
 var photoDelay = 30000;
 var retryDelay = 10000;
-var previousPhoto;
+var fadeDelay = 1200;
+var previousPhotoID;
 var currentPhoto;
 
 function sortList(){
@@ -71,24 +72,27 @@ function startList(data){
 
   //Initialize the current photo index
   currentPhoto = photoList[imageIndex];
-  var myhtml = generateHtml();
-  $(".photos").append(myhtml);
-  reveal();
+  nextPhoto();
+}
+
+function photoTransition(pID, cID){
+  setTimeout(function(){$("#"+cID).fadeIn("slow");}, fadeDelay);
+  setTimeout(function(){$("#"+pID).fadeOut("slow");}, fadeDelay);
+  setTimeout(function(){$("#"+pID).remove();}, 2*fadeDelay);
 }
 
 function nextPhoto(){
   var myhtml = generateHtml();
   $(".photos").append(myhtml);
-  setTimeout(function(){$("#"+previousPhoto.id).fadeOut("slow", reveal);}, 1200);
-}
 
-function reveal(){
-  if(previousPhoto){
-    $("#"+previousPhoto.id).remove();
+  if(previousPhotoID){
+    photoTransition(previousPhotoID, currentPhoto.id);
+  }else{
+    $("#"+currentPhoto.id).fadeIn("fast");
   }
-  $("#"+currentPhoto.id).fadeIn("slow");
+
   imageIndex++;
-  previousPhoto = currentPhoto;
+  previousPhotoID = currentPhoto.id;
 
   /* Skip used images until finding a fresh one or reaching the end */
   while((imageIndex != photoList.length) && photoList[imageIndex].used){
