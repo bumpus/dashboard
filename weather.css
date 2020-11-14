@@ -32,7 +32,7 @@
 
 #weather > #current > .currentWind{
   position : absolute;
-  bottom: 2em;
+  bottom: 3px;
   right: 3px;
   text-align: right;
   width : 100%;
