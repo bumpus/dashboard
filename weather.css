@@ -32,7 +32,7 @@
 
 #weather > #current > .currentWind{
   position : absolute;
-  bottom: 3px;
+  bottom: 0.5em;
   right: 3px;
   text-align: right;
   width : 100%;
@@ -58,7 +58,12 @@
 
 #weather > #current > .currentIcon{
   position : absolute;
-  right : 3px;
+  right: 48px;
+}
+
+.currentIcon > svg{
+  height : 96px;
+  width : 96px;
 }
 
 
@@ -131,8 +136,14 @@
 
 .dayContainer > .dailyIcon{
   position : absolute;
-  left : 25px;
+  left : 30px;
   top : 25px;
+}
+
+
+.dayContainer > .dailyIcon > svg{
+  height : 48px;
+  width : 48px;
 }
 
 .dayContainer > .sunrise{
