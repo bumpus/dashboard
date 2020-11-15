@@ -1,5 +1,5 @@
 #weather{
-  width : 1110px;
+  width: 1240px;
   height: 150px;
   position : fixed;
   top : 5px;
@@ -10,14 +10,13 @@
 }
 
 #weather > #current{
-  width : 225px;
-  align : left;
+  width: 350px;
   height : 100%;
   position : absolute;
 }
 
 #weather > #week {
-  left : 230px;
+  left: 355px;
   float : left;
   position : absolute;
   width: 880px;
@@ -33,9 +32,11 @@
 
 #weather > #current > .currentWind{
   position : absolute;
-  bottom: 2em;
+  bottom: 0.5em;
+  right: 3px;
   text-align: right;
   width : 100%;
+  font-size: 2.5em;
 }
 #weather > #current > .currentTemperature{
   position : absolute;
@@ -108,10 +109,6 @@
   position : absolute;
   bottom : 1px;
   left : 2px;
-}
-
- {
-  height : 15px;
 }
 
 .dayContainer > .dailyHigh{
