@@ -19,7 +19,6 @@ class climacell{
    }
 
    private function build_realtime_url(){
-       // https://api.climacell.co/v3/weather/realtime?lat=41.975&lon=-91.765&unit_system=us&fields=temp%2Cprecipitation%2Cweather_code%2Cwind_speed%2Cwind_direction%2Csunrise%2Csunset%2Cmoon_phase&apikey=5xvK4AJqTcfMp6x67O5LJ6xGq0P1hAko
        $this->realtime_url = $this->base_url . "realtime"
          . "?lat=" . $this->latitude 
          . "&lon=" . $this->longitude

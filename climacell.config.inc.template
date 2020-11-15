@@ -1,0 +1,4 @@
+<?php 
+define("CLIMACELL_KEY", "YOUR_KEY_HERE");
+define("BASE_URL", "https://api.climacell.co/v3/weather/");
+?>
