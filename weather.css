@@ -16,7 +16,8 @@
 }
 
 #weather > #week {
-  left: 355px;
+  left : 355px;
+  top : 10px;
   float : left;
   position : absolute;
   width: 880px;
@@ -32,12 +33,39 @@
 
 #weather > #current > .currentWind{
   position : absolute;
-  bottom: 0.5em;
-  right: 3px;
-  text-align: right;
-  width : 100%;
-  font-size: 2.5em;
+  bottom: 1.3em;
+  left  : 115px;
+  width: 72px;
+  height: 72px;
 }
+
+#weather > #current > .currentWind > .rose{
+  position: absolute;
+  transform-origin : center;
+  transform: rotate(-90deg);
+}
+
+#weather > #current > .currentWind > .arrow{
+  position: absolute;
+  opacity : 40%;
+  transform-origin: center;
+}
+
+#weather > #current > .currentWind > .speed{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+}
+
+#weather > #current > .currentWind > .arrow > svg,
+#weather > #current > .currentWind > .rose > svg{
+  width: 72px;
+  height: 72px;
+}
+
+
 #weather > #current > .currentTemperature{
   position : absolute;
   font-size : 5em;
@@ -46,7 +74,7 @@
 }
 
 .currentTemperature > svg {
-    height: 15px;
+    height: 25px;
     vertical-align: top;
 }
 

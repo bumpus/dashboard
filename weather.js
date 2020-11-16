@@ -54,10 +54,11 @@ const weather_icon = {
   tstorm : '<svg version="1.1" id="tstorm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><g><rect fill="none" width="24" height="24"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#0072F5" d="M17.2667,22.1674L17.2667,22.1674 c-0.2552-0.1059-0.3764-0.3983-0.2705-0.6535l1.6271-3.9261c0.1057-0.2552,0.3981-0.3764,0.6535-0.2707 c0.2552,0.1059,0.3762,0.3985,0.2705,0.6536l-1.6271,3.9261C17.8145,22.152,17.5217,22.2731,17.2667,22.1674 M2.9772,21.8977 l1.6271-3.926c0.1057-0.2552-0.0154-0.5478-0.2705-0.6535c-0.2552-0.1057-0.5478,0.0154-0.6535,0.2705l-1.6271,3.9261 c-0.1059,0.2552,0.0154,0.5478,0.2705,0.6535C2.5789,22.2741,2.8715,22.1531,2.9772,21.8977 M6.7129,21.8975l1.6271-3.9261 c0.1057-0.2552-0.0154-0.5478-0.2705-0.6535c-0.2552-0.1057-0.5478,0.0154-0.6535,0.2705l-1.6271,3.9263 c-0.1057,0.2552,0.0154,0.5476,0.2705,0.6535C6.3146,22.2738,6.6072,22.1529,6.7129,21.8975 M14.1843,21.8972l1.6272-3.9263 c0.1057-0.2552-0.0155-0.5478-0.2705-0.6535c-0.2554-0.1057-0.5479,0.0154-0.6535,0.2705l-1.6272,3.9263 c-0.1057,0.255,0.0155,0.5476,0.2705,0.6535C13.786,22.2732,14.0788,22.1522,14.1843,21.8972 M16.0522,21.897l0.3432-0.8289 c0.1059-0.2552-0.0152-0.5476-0.2705-0.6535c-0.2552-0.1057-0.5476,0.0155-0.6535,0.2705l-0.3432,0.8289 c-0.1059,0.2552,0.0154,0.5476,0.2705,0.6535C15.6539,22.2731,15.9465,22.152,16.0522,21.897 M8.5807,21.8973l0.3434-0.8287 c0.1057-0.255-0.0154-0.5476-0.2705-0.6535c-0.2552-0.1057-0.5478,0.0155-0.6535,0.2707l-0.3434,0.8287 c-0.1057,0.2552,0.0154,0.5478,0.2707,0.6535C8.1824,22.2738,8.4749,22.1527,8.5807,21.8973 M4.8449,21.8975l0.3434-0.8285 c0.1057-0.2552-0.0155-0.5478-0.2707-0.6535c-0.255-0.1059-0.5478,0.0154-0.6535,0.2705l-0.3432,0.8289 c-0.1057,0.255,0.0154,0.5476,0.2705,0.6535C4.4468,22.2739,4.7392,22.1529,4.8449,21.8975 M17.0657,19.4515l0.6138-1.4808 c0.1055-0.2552-0.0155-0.5478-0.2707-0.6535c-0.2552-0.1057-0.5478,0.0155-0.6533,0.2707l-0.6138,1.4808 c-0.1057,0.255,0.0155,0.5478,0.2705,0.6533C16.6674,19.8279,16.9602,19.7066,17.0657,19.4515 M9.5943,19.452l0.6136-1.4808 c0.1057-0.2552-0.0154-0.5478-0.2705-0.6535c-0.2552-0.1057-0.5478,0.0155-0.6535,0.2705l-0.6136,1.4809 c-0.1059,0.255,0.0154,0.5478,0.2705,0.6535C9.196,19.8284,9.4886,19.7072,9.5943,19.452 M5.8586,19.4523l0.6136-1.4808 c0.1057-0.2552-0.0155-0.5478-0.2707-0.6535c-0.255-0.1057-0.5478,0.0154-0.6535,0.2705l-0.6134,1.4808 c-0.1057,0.2552,0.0154,0.5479,0.2705,0.6535C5.4603,19.8288,5.7529,19.7075,5.8586,19.4523"/><path fill-rule="evenodd" clip-rule="evenodd" fill="#E5E5E5" d="M20.8403,5.1745C20.274,2.778,18.213,1.0001,15.75,1.0001 c-2.8995,0-5.25,2.4616-5.25,5.4999c0,0.1964,0.0113,0.3898,0.03,0.5799C9.6345,7.4569,9,8.3723,9,9.4465 C9,10.8559,10.0913,12,11.4375,12h9.3C22.5398,12,24,10.4695,24,8.5821C24,6.7309,22.5937,5.2327,20.8403,5.1745"/><g><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M5.25,15.5c-1.5166,0-2.75-1.2334-2.75-2.7495 c0-1.1265,0.6777-2.127,1.7266-2.5483l0.3496-0.1406L4.5371,9.686C4.5137,9.4609,4.5,9.2324,4.5,9.0005c0-3.584,2.916-6.5,6.5-6.5 c2.9912,0,5.583,2.0288,6.3018,4.9331l0.0908,0.3677l0.3789,0.0117C19.8623,7.8794,21.5,9.5645,21.5,11.6504 c0,2.1226-1.7275,3.8496-3.8506,3.8496H5.25z"/><path fill="#1D1D33" d="M10.9998,3.0003c2.7609,0,5.1527,1.8724,5.8163,4.5533l0.182,0.7353l0.7571,0.0239 c1.8195,0.0575,3.2446,1.5235,3.2446,3.3374c0,1.8472-1.5028,3.35-3.35,3.35h-12.4c-1.2407,0-2.25-1.0093-2.25-2.2499 c0-0.921,0.5547-1.7391,1.413-2.0842l0.6991-0.281L5.0345,9.6356C5.0111,9.4094,4.9998,9.2015,4.9998,9.0004 C4.9998,5.6919,7.6914,3.0003,10.9998,3.0003 M10.9998,2.0003c-3.866,0-7,3.1331-7,7.0001c0,0.2499,0.015,0.4958,0.04,0.738 c-1.194,0.48-2.04,1.6449-2.04,3.012c0,1.794,1.455,3.2499,3.25,3.2499h12.4c2.403,0,4.35-1.9479,4.35-4.35 c0-2.3558-1.875-4.263-4.213-4.3369C17.0318,4.2634,14.2838,2.0003,10.9998,2.0003L10.9998,2.0003z"/></g><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFD02F" d="M12.6419,13.6998h2.9958c0.5208,0,0.8363,0.575,0.5569,1.0144 l-4.7331,7.4405c-0.1627,0.2555-0.4782,0.3676-0.7657,0.2718c-0.123-0.0492-0.123-0.0492-0.2322-0.1288 c-0.1751-0.1459-0.2626-0.3718-0.2314-0.5975l0.546-3.9535l0.0994-0.7466H8.3615c-0.4046,0-0.714-0.3607-0.6524-0.7604 l0.9148-5.9405c0.0496-0.3219,0.3266-0.5594,0.6524-0.5594h3.2486c0.408,0,0.7182,0.3665,0.6508,0.769L12.6419,13.6998z"/></g></svg>'
 };
 
-//var staticData = JSON.parse(`{"current":{"temperature":51,"pop":0.65,"icon":"cloudy","summary":"cloudy","windSpeed":12,"windBearing":167,"alerts":4,"alertTitle":"Wind Advisory"},"daily":{"data":{"Saturday":{"icon":"rain_light","pop":0.65,"low":38,"high":53},"Sunday":{"icon":"clear","pop":0,"low":27,"high":53},"Monday":{"icon":"mostly_cloudy","pop":0,"low":28,"high":45},"Tuesday":{"icon":"cloudy","pop":0,"low":30,"high":50},"Wednesday":{"icon":"cloudy","pop":0,"low":49,"high":61},"Thursday":{"icon":"cloudy","pop":0,"low":48,"high":55},"Friday":{"icon":"rain_light","pop":0.55,"low":45,"high":52}}},"almanac":{"sunrise":"6:57 AM","sunset":"4:45 PM","moonphase":"new"}}`);
+const compassRose  = '<svg version="1.1" id="svg8" sodipodi:docname="compass.svg" height="90" width="90" viewBox="0 0 90 90" inkscape:version="1.0 (4035a4fb49, 2020-05-01)"><g style="display:inline" id="layer1" inkscape:groupmode="layer" inkscape:label="Compass"><ellipse ry="44.021503" rx="44.0215" cy="45.000023" cx="44.999996" id="path843" style="fill:none;stroke:#000000;stroke-width:1.95699;stroke-miterlimit:4;stroke-dasharray:none" /><rect y="0" x="39.999996" height="9.2323713" width="9.2323704" id="rect845" style="fill:#000000;stroke:none;stroke-width:0.767628;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><text id="text849" y="8.1945953" x="40.466473" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583;" xml:space="preserve"><tspan style="stroke-width:0.264583;fill:#ffffff;" y="8.1945953" x="40.466473" id="tspan847" sodipodi:role="line">N</tspan></text></g></svg>';
+const compassArrow = '<svg version="1.1" id="svg8" sodipodi:docname="compass.svg" height="90" width="90" viewBox="0 0 90 90" inkscape:version="1.0 (4035a4fb49, 2020-05-01)"><g inkscape:groupmode="layer" id="layer2" inkscape:label="Arrow" style="display:inline"><g id="g28" style="display:inline;fill:#ff0000;stroke:#ff0000" transform="matrix(0.62764649,0,0,0.66598975,160.16433,-11.632206)"><rect inkscape:transform-center-y="-2.4498457" inkscape:transform-center-x="8.8194444" y="100.07793" x="-203.40642" height="39.840881" width="39.840881" id="rect19" style="fill:#ff0000;stroke:#ff0000;stroke-width:0.159117" /><path transform="matrix(0.50158845,0,0,0.57859605,-76.956398,73.60199)" inkscape:transform-center-y="-11.590863" inkscape:transform-center-x="-0.019081588" d="m -142.87499,45.357143 -139.01915,0.131791 69.39544,-120.460011 z" inkscape:randomized="0" inkscape:rounded="0" inkscape:flatsided="true" sodipodi:arg2="1.5698483" sodipodi:arg1="0.52265077" sodipodi:r2="40.13139" sodipodi:r1="80.262779" sodipodi:cy="5.2916665" sodipodi:cx="-212.42261" sodipodi:sides="3" id="path21" style="fill:#ff0000;stroke:#ff0000;stroke-width:0.264583" sodipodi:type="star" /></g></g></svg>';
+
 function loadWeather(){
   $.getJSON("weather.php", displayWeather);
-  //displayWeather(staticData);
 }
 
 function displayWeather(data){
@@ -66,7 +67,16 @@ function displayWeather(data){
   $("#current").append(`<div class='currentTemperature' style = 'color : ${getColorByTemp(data.current.temperature)}; fill : ${getColorByTemp(data.current.temperature)}'>${tempIcon}${data.current.temperature}&#176;</div>`);
   $("#current").append("<div class='currentPop'>" + Math.round(data.current.pop * 100) + "%</div>");
   $("#current").append(`<div class='currentIcon'>${chooseIcon(data.current.icon)}</div>`);
-  $("#current").append("<div class= 'currentWind'>" + data.current.windSpeed + "mph - " + direction(data.current.windBearing) + "</div>");
+  $("#current").append(`<div class='currentWind'><div class="rose">${compassRose}</div><div class="arrow">${compassArrow}</div><div class='speed'>${data.current.windSpeed}</div></div>`);
+  //Determine correct scale for the arrow. smallest is 25%. Largest for 25mph or higher wind
+  scalefactor = data.current.windSpeed / 25.0;
+  if (scalefactor < 0.25){
+    scalefactor = 0.25;
+  }
+  if (scalefactor > 1.0){
+    scalefactor = 1.0;
+  }
+  $(".arrow").css("transform", `rotate(${data.current.windBearing - 90}deg) scale(${scalefactor})`);
   
 
   if(data.current.alerts){
@@ -133,30 +143,6 @@ function chooseIcon(weather_code){
       weather_code = 'partly_cloudy_day';
   }
   return weather_icon[weather_code];
-}
-
-// No error checking on the input. It is the responsiblity
-// of the caller to provide a bearing from 0 to 360.
-// Data provided from darksky is always an integer 0 to 359.
-function direction(bearing){
-  var ret;
-  if ((22 < bearing) && (bearing <= 67))
-    ret = "NE";
-  else if ((67 < bearing) && (bearing <= 112))
-    ret = "E";
-  else if ((112 < bearing) && (bearing <= 157))
-    ret = "SE";
-  else if ((157 < bearing) && (bearing <= 202))
-    ret = "S";
-  else if ((202 < bearing) && (bearing <= 247))
-    ret = "SW";
-  else if ((247 < bearing) && (bearing <= 292))
-    ret = "W";
-  else if ((292 < bearing) && (bearing <= 337))
-    ret = "NW";
-  else ret = "N"; // 337-360/0-22
-
-  return ret;
 }
 
 // Returns a suitable #RRGGBB color where
