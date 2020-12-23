@@ -42,7 +42,7 @@ class WeekForecast{
     $timeZone = new DateTimeZone($this->timeZone);
     foreach($this->forecast['daily'] as $day){
       $date = new DateTime($day->observation_time->value);
-      $date->setTimezone($timeZone);
+      //$date->setTimezone($timeZone);
       $weekday = $date->format('l');
 
       //Check if this weekday is already present in the array.
