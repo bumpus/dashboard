@@ -78,6 +78,18 @@
     vertical-align: top;
 }
 
+#weather > #current > .feels_like{
+  position : absolute;
+  font-size : 2em;
+  left : 125px;
+  text-shadow : 2px 2px darkgray;
+}
+
+.feels_like > svg {
+    height: 15px;
+    vertical-align: top;
+}
+
 #weather > #current > .currentPop{
   position : absolute;
   left : 2px;

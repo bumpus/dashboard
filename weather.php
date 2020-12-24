@@ -24,6 +24,7 @@ class WeekForecast{
 
   function get_results(){
     $results['current']['temperature'] = round($this->forecast['current']->temp->value);
+    $results['current']['feels_like'] = round($this->forecast['current']->feels_like->value);
     $results['current']['pop'] = $this->forecast['daily'][0]->precipitation_probability->value/100;
     $results['current']['icon'] = $this->forecast['current']->weather_code->value;
     $results['current']['windSpeed'] = round($this->forecast['current']->wind_speed->value);

@@ -23,7 +23,7 @@ class climacell{
          . "?lat=" . $this->latitude 
          . "&lon=" . $this->longitude
          . "&unit_system=us"
-         . "&fields=temp,precipitation,weather_code,wind_speed,wind_direction,sunrise,sunset,moon_phase"
+         . "&fields=temp,precipitation,feels_like,weather_code,wind_speed,wind_direction,sunrise,sunset,moon_phase"
          . "&apikey=" . $this->api_key;
    }
 

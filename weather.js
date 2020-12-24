@@ -65,6 +65,7 @@ function displayWeather(data){
   $("#weather").empty();
   $("#weather").append("<div id='current'></div>")
   $("#current").append(`<div class='currentTemperature' style = 'color : ${getColorByTemp(data.current.temperature)}; fill : ${getColorByTemp(data.current.temperature)}'>${tempIcon}${data.current.temperature}&#176;</div>`);
+  $("#current").append(`<div class='feels_like' style = 'color : ${getColorByTemp(data.current.feels_like)}; fill : ${getColorByTemp(data.current.feels_like)}'>${tempIcon}${data.current.feels_like}&#176;</div>`);
   $("#current").append("<div class='currentPop'>" + Math.round(data.current.pop * 100) + "%</div>");
   $("#current").append(`<div class='currentIcon'>${chooseIcon(data.current.icon)}</div>`);
   $("#current").append(`<div class='currentWind'><div class="rose">${compassRose}</div><div class="arrow">${compassArrow}</div><div class='speed'>${data.current.windSpeed}</div></div>`);
