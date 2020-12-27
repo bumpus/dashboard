@@ -67,7 +67,7 @@ function displayWeather(data){
   $("#current").append(`<div class='currentTemperature' style = 'color : ${getColorByTemp(data.current.temperature)}; fill : ${getColorByTemp(data.current.temperature)}'>${tempIcon}${data.current.temperature}&#176;</div>`);
   $("#current").append(`<div class='feels_like' style = 'color : ${getColorByTemp(data.current.feels_like)}; fill : ${getColorByTemp(data.current.feels_like)}'>${tempIcon}${data.current.feels_like}&#176;</div>`);
   $("#current").append("<div class='currentPop'>" + Math.round(data.current.pop * 100) + "%</div>");
-  $("#current").append(`<div class='currentIcon'>${chooseIcon(data.current.icon)}</div>`);
+  $("#current").append(`<div class='currentIcon'>${chooseIcon(data.current.icon, determineDaytime(data.almanac.sunrise, data.almanac.sunset))}</div>`);
   $("#current").append(`<div class='currentWind'><div class="rose">${compassRose}</div><div class="arrow">${compassArrow}</div><div class='speed'>${data.current.windSpeed}</div></div>`);
   //Determine correct scale for the arrow. smallest is 25%. Largest for 25mph or higher wind
   scalefactor = data.current.windSpeed / 25.0;
@@ -99,14 +99,14 @@ function displayWeather(data){
     $(`#${day} > .dayContainer`).append(`<div class='dailyLow' style = 'color : ${getColorByTemp(data.daily.data[day].low)}; fill : ${getColorByTemp(data.daily.data[day].low)}'>${tempIcon}${data.daily.data[day].low}&#176;</div>`);
     $(`#${day} > .dayContainer`).append(`<div class='dailyHigh' style = 'color : ${getColorByTemp(data.daily.data[day].high)}; fill : ${getColorByTemp(data.daily.data[day].high)}'>${tempIcon}${data.daily.data[day].high}&#176;</div>`);
     $(`#${day} > .dayContainer`).append(`<div class='dailyPop'>${Math.round(data.daily.data[day].pop * 100)}%${rainIcon}</div>`);
-    $(`#${day} > .dayContainer`).append(`<div class='dailyIcon'>${chooseIcon(data.daily.data[day].icon)}</canvas></div>`);
+    $(`#${day} > .dayContainer`).append(`<div class='dailyIcon'>${chooseIcon(data.daily.data[day].icon, true)}</canvas></div>`);
   }
 
   $("#week").append('<div class="day" id="almanac"></div>');
   $("#almanac").append('<div class="dayName">Almanac</div>');
   $("#almanac").append("<div class='dayContainer'></div>");
-  $("#almanac > .dayContainer").append(`<div class="sunrise">${sunriseIcon}${data.almanac.sunrise}</div>`);
-  $("#almanac > .dayContainer").append(`<div class="sunset">${sunsetIcon}${data.almanac.sunset}</div>`);
+  $("#almanac > .dayContainer").append(`<div class="sunrise">${sunriseIcon}${stampToString(data.almanac.sunrise)}</div>`);
+  $("#almanac > .dayContainer").append(`<div class="sunset">${sunsetIcon}${stampToString(data.almanac.sunset)}</div>`);
   $("#almanac > .dayContainer").append(`<div class="moonphase">${selectMoonPhaseIcon(data.almanac.moonphase)}</div>`);
 }
 
@@ -129,19 +129,30 @@ function selectMoonPhaseIcon(phase){
 }
 
 //string: freezing_rain_heavy, freezing_rain, freezing_rain_light, freezing_drizzle, ice_pellets_heavy, ice_pellets, ice_pellets_light, snow_heavy, snow, snow_light, flurries, tstorm, rain_heavy, rain, rain_light, drizzle, fog_light, fog, cloudy, mostly_cloudy, partly_cloudy, mostly_clear, clear
-function chooseIcon(weather_code){
+function chooseIcon(weather_code, is_day){
   // There are day and night variants for clear, mostly_clear, and partly_cloudy.
-  // Just use the day version for now.
   if (weather_code == 'clear'){
+    if(is_day){
       weather_code = 'clear_day';
+    }else{
+      weather_code = 'clear_night';
+    }
   }
 
   if (weather_code == 'mostly_clear'){
+    if(is_day){
       weather_code = 'mostly_clear_day';
+    }else{
+      weather_code = 'mostly_clear_night';
+    }
   }
 
   if (weather_code == 'partly_cloudy'){
+    if(is_day){
       weather_code = 'partly_cloudy_day';
+    }else{
+      weather_code = 'partly_cloudy_night';
+    }
   }
   return weather_icon[weather_code];
 }
@@ -179,3 +190,31 @@ function getColorByTemp(temp){
 
   return colorString;
 }
+
+// Determine if the current time is between the unix timestamps
+// for sunrise and sunset (that is, is it daytime?).
+function determineDaytime(sunrise, sunset){
+  isDay = true;
+  now = Math.round(Date.now()/1000);
+  if(now < sunrise)
+    isDay = false;
+  if(now > sunset)
+    isDay = false;
+
+  return isDay;
+}
+
+// Takes a unix timestamp and returns a hh:mm AM/PM string
+function stampToString(ts)
+{
+  console.log(`Converting timestamp: ${ts})`);
+  myTime = new Date(ts*1000);
+  hours = myTime.getHours();
+  if (hours > 12)
+    hours = hours-12;
+  if (hours == 0)
+    hours = 12;
+  console.log(`${hours}:${myTime.getMinutes()} ${(myTime.getHours()<12)?"AM":"PM"}`);
+  return `${hours}:${myTime.getMinutes()} ${(myTime.getHours()<12)?"AM":"PM"}`;
+}
+
