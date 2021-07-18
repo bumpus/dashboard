@@ -123,18 +123,18 @@ function loadEvent(calendarEvent){
   //First Style for the all day events
   if (null != calendarEvent.start.date){
     if (calendarEvent.startsBeforeDate){
-      eventString += "<< ";
+      eventString += "&lArr; ";
     }
     eventString += calendarEvent.summary;
     if (calendarEvent.endsAfterDate){
-      eventString += " >>";
+      eventString += " &rArr;";
     }
   }else{
     // do the specific time format instead
     let ampm = "";
     let h = "";
     if (calendarEvent.startsBeforeDate){
-      eventString += "<< - ";
+      eventString += "&lArr; - ";
     }else{
       h = calendarEvent.startDate.getHours()
 
@@ -153,7 +153,7 @@ function loadEvent(calendarEvent){
       eventString += h + ":" + calendarEvent.startDate.getMinutes().toString().padStart(2, "0") + ampm + " - ";
     }
     if (calendarEvent.endsAfterDate){
-      eventString += ">> ";
+      eventString += "&rArr ";
     }else{
       h = calendarEvent.endDate.getHours()
 
