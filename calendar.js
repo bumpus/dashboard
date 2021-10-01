@@ -153,7 +153,7 @@ function loadEvent(calendarEvent){
       eventString += h + ":" + calendarEvent.startDate.getMinutes().toString().padStart(2, "0") + ampm + " - ";
     }
     if (calendarEvent.endsAfterDate){
-      eventString += "&rArr ";
+      eventString += "&rArr; ";
     }else{
       h = calendarEvent.endDate.getHours()
 
