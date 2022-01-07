@@ -81,7 +81,7 @@
 #weather > #current > .feels_like{
   position : absolute;
   font-size : 2em;
-  left : 125px;
+  left : 170px;
   text-shadow : 2px 2px darkgray;
 }
 
@@ -98,7 +98,7 @@
 
 #weather > #current > .currentIcon{
   position : absolute;
-  right: 48px;
+  right: 25px;
 }
 
 .currentIcon > svg{
