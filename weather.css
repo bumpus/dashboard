@@ -34,7 +34,7 @@
 #weather > #current > .currentWind{
   position : absolute;
   bottom: 1.3em;
-  left  : 115px;
+  left  : 150px;
   width: 72px;
   height: 72px;
 }
