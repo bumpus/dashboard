@@ -207,14 +207,12 @@ function determineDaytime(sunrise, sunset){
 // Takes a unix timestamp and returns a hh:mm AM/PM string
 function stampToString(ts)
 {
-  console.log(`Converting timestamp: ${ts})`);
   myTime = new Date(ts*1000);
   hours = myTime.getHours();
   if (hours > 12)
     hours = hours-12;
   if (hours == 0)
     hours = 12;
-  console.log(`${hours}:${myTime.getMinutes()} ${(myTime.getHours()<12)?"AM":"PM"}`);
   return `${hours}:${myTime.getMinutes()} ${(myTime.getHours()<12)?"AM":"PM"}`;
 }
 
