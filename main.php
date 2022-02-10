@@ -8,11 +8,13 @@
     <script src="photos.js" defer></script>
     <script src="clock.js" defer></script>
     <script src="calendar.js" defer></script>
+    <script src="covid.js" defer></script>
     <link rel="stylesheet" type="text/css" href="weather.css">
     <link rel="stylesheet" type="text/css" href="menu.css">
     <link rel="stylesheet" type="text/css" href="photos.css">
     <link rel="stylesheet" type="text/css" href="clock.css">
     <link rel="stylesheet" type="text/css" href="calendar.css">
+    <link rel="stylesheet" type="text/css" href="covid.css">
     <script>
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -25,12 +27,14 @@ $(document).ready(function(){
   //Set timers to reload the calendar and weather
   setInterval(loadWeather, 1000 * 60 * 15);
   setInterval(loadCalendar, 1000 * 60 * 5);
+  setInterval(loadCovid, 1000 * 60 * 60 * 6); // Every 6 hours
 
   //Load initial content 
   loadMenus();
   loadWeather();
   loadCalendar();
   loadPhoto();
+  loadCovid();
 });
     </script>
     <style>
@@ -48,5 +52,6 @@ body {
       <div class="menu" id="jefferson"><div class=school>Jefferson</div></div>
     </div>
     <div class="photos"></div>
+    <div id="covid"></div>
   </body>
 </html>

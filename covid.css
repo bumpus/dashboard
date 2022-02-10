@@ -1,0 +1,39 @@
+.high{
+    background-color: rgba(255,0,0,0.5); /* css red w/ alpha */
+  }
+  
+  .substantial{
+    background-color: rgba(255,165,0,0.5); /* css orange w/ alpha */
+  }
+  
+  .moderate{
+    background-color: rgba(255, 255, 0, 0.5) /* css yellow w/ alpha */
+  }
+  
+  .low{
+    background-color: rgba(0, 0, 255, 0.5) /* css blue w/ alpha */
+  }
+  
+  #covid {
+    position : fixed;
+    right: 5px;
+    top: 5px;
+    font-family: sans-serif;
+  }
+  
+  #date {
+    font-size: 0.6em;
+  }
+  
+  #level {
+    font-size: 1em;
+    font-weight: bolder;
+  }
+  
+  #cases {
+    font-size: 1em;
+  }
+  
+  #positivity {
+    font-size: 1em;
+  }
