@@ -18,22 +18,11 @@
     position : fixed;
     right: 5px;
     top: 5px;
+    width: 200px;
     font-family: sans-serif;
-  }
-  
-  #date {
-    font-size: 0.6em;
+    font-size: 1.4em;
   }
   
   #level {
-    font-size: 1em;
     font-weight: bolder;
-  }
-  
-  #cases {
-    font-size: 1em;
-  }
-  
-  #positivity {
-    font-size: 1em;
   }

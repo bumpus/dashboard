@@ -20,20 +20,30 @@ function get_covid(){
   $data = json_decode(file_get_contents(CDC_COUNTY_DATA, false, $context));
   usort($data->integrated_county_timeseries_external_data, "cmp");
   $i = count($data->integrated_county_timeseries_external_data) - 1;
+  $output = array(
+    'cases' => NULL,
+    'positivity' => NULL,
+    'level' => NULL
+  );
+
   while (
-    $data->integrated_county_timeseries_external_data[$i]->new_cases_7_day_rolling_average == NULL ||
-    $data->integrated_county_timeseries_external_data[$i]->percent_positive_7_day == NULL ||
-    $data->integrated_county_timeseries_external_data[$i]->community_transmission_level == NULL
+    $output['cases'] == NULL ||
+    $output['positivity'] == NULL ||
+    $output['level'] == NULL
   )
   {
+    if($output['cases'] == NULL && $data->integrated_county_timeseries_external_data[$i]->new_cases_7_day_rolling_average != NULL){
+      $output['cases'] = round(($data->integrated_county_timeseries_external_data[$i]->new_cases_7_day_rolling_average*7)/(LINN_COUNTY_POPULATION/100000));
+    }
+    if($output['positivity'] == NULL && $data->integrated_county_timeseries_external_data[$i]->percent_positive_7_day != NULL){
+      $output['positivity'] = round($data->integrated_county_timeseries_external_data[$i]->percent_positive_7_day, 1);
+    }
+    if($output['level'] == NULL && $data->integrated_county_timeseries_external_data[$i]->community_transmission_level != NULL){
+      $output['level'] = $data->integrated_county_timeseries_external_data[$i]->community_transmission_level;
+    }
     $i--;
   }
-  return json_encode(array(
-    'cases' => round(($data->integrated_county_timeseries_external_data[$i]->new_cases_7_day_rolling_average*7)/(LINN_COUNTY_POPULATION/100000)),
-    'positivity' => round($data->integrated_county_timeseries_external_data[$i]->percent_positive_7_day, 1),
-    'level' => $data->integrated_county_timeseries_external_data[$i]->community_transmission_level,
-    'date' => $data->integrated_county_timeseries_external_data[$i]->date
-  ));
+  return json_encode($output);
 }
 
 print(get_covid());
