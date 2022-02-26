@@ -4,9 +4,10 @@ function loadCovid(){
 
 function displayCovid(data){
   $("#covid").empty();
-  $("#covid").append(`<div id ='level'>Transmission Level: ${data.level[0].toUpperCase() + data.level.substring(1)}</div>`)
-  $("#covid").append(`<div id='positivity'>Positivity: ${data.positivity}%</div>`);
+  $("#covid").append(`<div id ='level'>Community Level: ${data.community[0].toUpperCase() + data.community.substring(1)}</div>`)
   $("#covid").append(`<div id='cases'>Cases/100k: ${data.cases}</div>`);
+  $("#covid").append(`<div id='admissions'>Adm./100k: ${data.admissions}</div>`);
+  $("#covid").append(`<div id='beds'>Beds Used: ${data.beds}%</div>`);
   $("#covid").removeClass();
-  $("#covid").addClass(data.level);
+  $("#covid").addClass(data.community);
 }

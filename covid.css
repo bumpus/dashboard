@@ -2,16 +2,12 @@
     background-color: rgba(255,0,0,0.5); /* css red w/ alpha */
   }
   
-  .substantial{
-    background-color: rgba(255,165,0,0.5); /* css orange w/ alpha */
-  }
-  
-  .moderate{
+  .medium{
     background-color: rgba(255, 255, 0, 0.5) /* css yellow w/ alpha */
   }
   
   .low{
-    background-color: rgba(0, 0, 255, 0.5) /* css blue w/ alpha */
+    background-color: rgba(0, 128, 0, 0.5) /* css green w/ alpha */
   }
   
   #covid {

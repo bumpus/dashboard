@@ -23,13 +23,17 @@ function get_covid(){
   $output = array(
     'cases' => NULL,
     'positivity' => NULL,
-    'level' => NULL
+    'transmission' => NULL,
+    'admissions' => NULL,
+    'beds' => NULL
   );
 
   while (
     $output['cases'] == NULL ||
     $output['positivity'] == NULL ||
-    $output['level'] == NULL
+    $output['transmission'] == NULL ||
+    $output['admissions'] == NULL ||
+    $output['beds'] == NULL
   )
   {
     if($output['cases'] == NULL && $data->integrated_county_timeseries_external_data[$i]->new_cases_7_day_rolling_average != NULL){
@@ -38,13 +42,36 @@ function get_covid(){
     if($output['positivity'] == NULL && $data->integrated_county_timeseries_external_data[$i]->percent_positive_7_day != NULL){
       $output['positivity'] = round($data->integrated_county_timeseries_external_data[$i]->percent_positive_7_day, 1);
     }
-    if($output['level'] == NULL && $data->integrated_county_timeseries_external_data[$i]->community_transmission_level != NULL){
-      $output['level'] = $data->integrated_county_timeseries_external_data[$i]->community_transmission_level;
+    if($output['transmission'] == NULL && $data->integrated_county_timeseries_external_data[$i]->community_transmission_level != NULL){
+      $output['transmission'] = $data->integrated_county_timeseries_external_data[$i]->community_transmission_level;
+    }
+    if($output['admissions'] == NULL && $data->integrated_county_timeseries_external_data[$i]->admissions_covid_confirmed_7_day_rolling_average != NULL){
+      $output['admissions'] = round(($data->integrated_county_timeseries_external_data[$i]->admissions_covid_confirmed_7_day_rolling_average*7)/(LINN_COUNTY_POPULATION/100000), 1);
+    }
+    if($output['beds'] == NULL && $data->integrated_county_timeseries_external_data[$i]->percent_adult_inpatient_beds_used_confirmed_covid != NULL){
+      $output['beds'] = round($data->integrated_county_timeseries_external_data[$i]->percent_adult_inpatient_beds_used_confirmed_covid, 1);
     }
     $i--;
   }
+  if ($output['cases'] < 200){
+    if (($output['admissions'] < 10) && ($output['beds'] < 10)){
+      $output['community'] = "low";
+    } else if (($output['admissions'] < 20) && ($output['beds'] < 15)){
+      $output['community'] = "medium";
+    } else {
+      $output['community'] = "high";
+    }
+  } else {
+    if (($output['admissions'] < 10) && ($output['beds'] < 10)){
+      $output['community'] = "medium";
+    } else {
+      $output['community'] = "high";
+    }
+  }
+
   return json_encode($output);
 }
 
 print(get_covid());
 ?>
+
