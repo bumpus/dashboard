@@ -2,6 +2,6 @@ darksky.inc
 config.inc
 composer.lock
 composer.json
-climacell.config.inc
+tomorrow_io.config.inc
 client_secrets.json
 vendor/*

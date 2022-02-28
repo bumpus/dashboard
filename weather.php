@@ -1,6 +1,6 @@
 <?php
 
-include "climacell.inc";
+include "tomorrow_io.inc";
 include "nws-alert.inc";
 
 header('Content-Type: application/json');
@@ -18,7 +18,7 @@ class WeekForecast{
 
 
   function __construct(){ 
-    $this->webservice = new climacell($this->latitude, $this->longitude);
+    $this->webservice = new tomorrow_io($this->latitude, $this->longitude);
     $this->forecast = $this->webservice->get_data();
     $this->nws_alerts = get_alerts($this->latitude, $this->longitude);
   }

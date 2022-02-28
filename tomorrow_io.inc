@@ -1,9 +1,9 @@
 <?php
-include "climacell.config.inc";
+include "tomorrow_io.config.inc";
 
-class climacell{
+class tomorrow_io{
   private $base_url = BASE_URL;
-  private $api_key = CLIMACELL_KEY;
+  private $api_key = TOMORROW_IO_KEY;
   private $latitude;
   private $longitude;
   private $url;

@@ -1,0 +1,4 @@
+<?php 
+define("TOMORROW_IO_KEY", "YOUR_KEY_HERE");
+define("BASE_URL", "https://api.tomorrow.io/v4/");
+?>
