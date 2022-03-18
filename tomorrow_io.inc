@@ -64,8 +64,21 @@ class tomorrow_io{
   }
 
   function get_data(){
-    return(array('current'=> $this->data->data->timelines[1]->intervals[0],
-                 'daily'  => array_slice($this->data->data->timelines[0]->intervals,0,7)));
+    $timeline_count = count($this->data->data->timelines);
+    $minute_index = 0;
+    $day_index = 0;
+
+    for ($i=0; $i<$timeline_count; $i++) {
+      if ($this->data->data->timelines[$i]->timestep == "1m") {
+        $minute_index = $i;
+      }
+      if ($this->data->data->timelines[$i]->timestep == "1d") {
+        $day_index = $i;
+      }
+    }
+
+    return(array('current'=> $this->data->data->timelines[$minute_index]->intervals[0],
+                 'daily'  => array_slice($this->data->data->timelines[$day_index]->intervals,0,7)));
     //return $this->data;
    }
 }
