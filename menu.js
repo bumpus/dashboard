@@ -11,11 +11,6 @@ function loadMenus(){
   $.getJSON(url, "", function (result) {
     parseMenu('#jefferson', result);
   });
-  $("#taft").html("<div class=school>Taft</div>");
-  url = "https://cr.nutrislice.com/menu/api/weeks/school/taft/menu-type/lunch/"+menuDate.getFullYear()+"/"+(menuDate.getMonth()+1).toString().padStart(2, '0')+"/"+menuDate.getDate().toString().padStart(2, '0')+"/?format=json-p&callback=?";
-  $.getJSON(url, "", function (result) {
-    parseMenu('#taft', result);
-  });
 
   /* set to reload the menus at 1PM on the day the menu to get the next day's info */
   setTimeout(loadMenus, new Date(menuDate.getFullYear(), menuDate.getMonth(), menuDate.getDate(), 13, 0, 0, 0) - now);

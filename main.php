@@ -48,7 +48,6 @@ body {
     <div id="weather"></div>
     <div id="clock"></div>
     <div id="menus">
-      <div class="menu" id="taft"><div class=school>Taft</div></div>
       <div class="menu" id="jefferson"><div class=school>Jefferson</div></div>
     </div>
     <div class="photos"></div>
