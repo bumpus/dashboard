@@ -55,7 +55,16 @@ function generateHtml(){
     myhtml += "<div  class='r' style=\"background-image : url('"+photoList[currentPhoto.partner].url+"=w960')\"></div>";
     myhtml += "</div>";
   }else{
-    myhtml = "<div id='"+currentPhoto.id+"' style=\"display: none; background-image : url('"+currentPhoto.url+"=w1920')\"></div>";
+    var suffix;
+    if ((currentPhoto.width / currentPhoto.height) > (1920/1080))
+    {
+      suffix = "=h1080";
+    }
+    else
+    {
+      suffix = "=w1920";
+    }
+    myhtml = "<div id='"+currentPhoto.id+"' style=\"display: none; background-image : url('"+currentPhoto.url+suffix+"')\"></div>";
 
   }
   return myhtml;
