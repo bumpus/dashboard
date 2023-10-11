@@ -180,9 +180,6 @@ case '/config.php' :
 case '/photos.php' :
   require __DIR__ . '/photos.php';
   break;
-case '/covid.php' :
-  require __DIR__ . '/covid.php';
-  break;
 default:
   http_response_code(404);
   echo "Not Found (404)";
