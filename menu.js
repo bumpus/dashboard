@@ -8,7 +8,6 @@ function loadMenus(){
   }
   $("#jefferson").html("<div class=school>Jefferson</div>");
   var url = "https://cr.api.nutrislice.com/menu/api/weeks/school/jefferson/menu-type/lunch/"+menuDate.getFullYear()+"/"+(menuDate.getMonth()+1).toString().padStart(2, '0')+"/"+menuDate.getDate().toString().padStart(2, '0')+"/?format=json-p&callback=?";
-  console.log(url);
   $.getJSON(url, "", function (result) {
     parseMenu('#jefferson', result);
   });
