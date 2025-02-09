@@ -1,7 +1,6 @@
 darksky.inc
 config.inc
 composer.lock
-composer.json
 tomorrow_io.config.inc
 client_secrets.json
 vendor/*

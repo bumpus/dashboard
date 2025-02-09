@@ -1,0 +1,9 @@
+{
+    "require": {
+        "google/apiclient": "^2.0",
+        "google/cloud-firestore": "^1.10",
+        "grpc/grpc": "^v1.1.0",
+        "google/protobuf": "^v3.3.0",
+        "google/photos-library": "^1.7"
+    }
+}
