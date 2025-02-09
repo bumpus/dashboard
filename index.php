@@ -2,6 +2,12 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Google\Cloud\Firestore\FirestoreClient;
+$scopes = [
+  'https://www.googleapis.com/auth/userinfo.email',
+  'https://www.googleapis.com/auth/userinfo.profile',
+  'https://www.googleapis.com/auth/calendar.readonly',
+  'https://www.googleapis.com/auth/photoslibrary.readonly'
+];
 
 $projectId = getenv('GOOGLE_CLOUD_PROJECT');
 # Instantiate the Firestore Client for your project ID.
@@ -18,14 +24,9 @@ $client->setAuthConfig('client_secrets.json');
 $client->setAccessType('offline');
 $client->setApprovalPrompt ("force");
 $client->setIncludeGrantedScopes(true);
-$client->addScope([
-  Google_Service_Plus::USERINFO_EMAIL,
-  Google_Service_Plus::USERINFO_PROFILE,
-  Google_Service_Calendar::CALENDAR_READONLY,
-  Google_Service_PhotosLibrary::PHOTOSLIBRARY_READONLY
-]);
+$client->addScope($scopes);
 $client->setRedirectUri('https://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
-
+#
 /* Determine if we already know this user */
 $user_email = NULL;
 if (isset($_COOKIE['login_id'])){
